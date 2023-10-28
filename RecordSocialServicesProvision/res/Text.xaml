@@ -1,0 +1,22 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <FontFamily x:Key="BasicFont">Verdana</FontFamily>
+
+    <Style x:Key="BasicTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFonе}" />
+    </Style>
+
+    <Style x:Key="ErrorTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource ErrorColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFonе}" />
+    </Style>
+
+    <Style x:Key="AdditionalTextStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFonе}" />
+    </Style>
+
+
+</ResourceDictionary>

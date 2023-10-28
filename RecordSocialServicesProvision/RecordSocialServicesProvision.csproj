@@ -7,4 +7,13 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="New.png" />
+    <None Remove="res\icon\MainIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="res\icon\MainIcon.png" />
+  </ItemGroup>
+
 </Project>
