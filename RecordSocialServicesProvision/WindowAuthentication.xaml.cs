@@ -28,5 +28,25 @@ namespace RecordSocialServicesProvision
         {
 
         }
+
+        private void Login_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Functions.InputTextBox_GotFocus(sender, "Логин");
+        }
+
+        private void Login_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Functions.InputTextBox_LostFocus(sender, "Логин");
+        }
+
+        private void Password_GotFocus(object sender, RoutedEventArgs e)
+        {
+            Functions.InputTextBox_GotFocus(sender, "Пароль");
+        }
+
+        private void Password_LostFocus(object sender, RoutedEventArgs e)
+        {
+            Functions.InputTextBox_LostFocus(sender, "Пароль");
+        }
     }
 }

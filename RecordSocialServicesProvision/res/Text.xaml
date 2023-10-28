@@ -5,17 +5,17 @@
 
     <Style x:Key="BasicTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
-        <Setter Property="FontFamily" Value="{StaticResource BasicFonе}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
     <Style x:Key="ErrorTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource ErrorColor}" />
-        <Setter Property="FontFamily" Value="{StaticResource BasicFonе}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
     <Style x:Key="AdditionalTextStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
-        <Setter Property="FontFamily" Value="{StaticResource BasicFonе}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
 
