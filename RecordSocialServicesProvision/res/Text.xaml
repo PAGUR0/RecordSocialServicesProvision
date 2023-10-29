@@ -1,8 +1,12 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!-- Шрифт -->
+    
     <FontFamily x:Key="BasicFont">Verdana</FontFamily>
 
+    <!-- Стили для TextBlock -->
+    
     <Style x:Key="BasicTextStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
@@ -13,10 +17,21 @@
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
-    <Style x:Key="AdditionalTextStyle" TargetType="TextBox">
+    <Style x:Key="AdditionalTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
+    <!-- Стили для TextBox и PasswordBox -->
 
+    <Style x:Key="AdditionalTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+    </Style>
+
+    <Style x:Key="BasicPassowordStyle" TargetType="PasswordBox">
+        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+    </Style>
+   
 </ResourceDictionary>

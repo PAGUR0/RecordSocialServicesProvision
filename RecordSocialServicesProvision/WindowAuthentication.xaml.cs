@@ -41,12 +41,15 @@ namespace RecordSocialServicesProvision
 
         private void Password_GotFocus(object sender, RoutedEventArgs e)
         {
-            Functions.InputTextBox_GotFocus(sender, "Пароль");
+            PasswordText.Visibility = Visibility.Hidden;
         }
 
         private void Password_LostFocus(object sender, RoutedEventArgs e)
         {
-            Functions.InputTextBox_LostFocus(sender, "Пароль");
+            if(Password.Password == "")
+            {
+                PasswordText.Visibility = Visibility.Visible;
+            }
         }
     }
 }

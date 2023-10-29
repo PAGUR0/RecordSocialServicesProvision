@@ -19,10 +19,11 @@ namespace RecordSocialServicesProvision
 
     public class Functions
     {
-
+        // Изменение цвета и выравнивания текста при выборе TextBox
         public static void InputTextBox_GotFocus(object sender, string text)
         {
             TextBox textBox = (TextBox)sender;
+            textBox.TextAlignment = TextAlignment.Left;
             if (textBox.Text == text)
             {
                 textBox.Foreground = (SolidColorBrush)Application.Current.Resources["BasicTextColor"];
@@ -33,12 +34,12 @@ namespace RecordSocialServicesProvision
         public static void InputTextBox_LostFocus(object sender, string text)
         {
             TextBox textBox = (TextBox)sender;
+            textBox.TextAlignment = TextAlignment.Center;
             if (textBox.Text == string.Empty)
             {
                 textBox.Foreground = (SolidColorBrush)Application.Current.Resources["AdditionalTextColor"];
                 textBox.Text = text;
             }
         }
-
     }
 }

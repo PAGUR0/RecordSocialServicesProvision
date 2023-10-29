@@ -1,11 +1,18 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
+
+    <!-- Цвета кнопок -->
+
     <SolidColorBrush x:Key="BasicButtonColor" Color="#1589f6" />
     <SolidColorBrush x:Key="BasicButtonInvertColor" Color="#FF9803" />
-    <SolidColorBrush x:Key="ErrorColor" Color="#FFFF0303" />
-
+    
+    <!-- Цвета для текста -->
+    
     <SolidColorBrush x:Key="BasicTextColor" Color="#383A42" />
     <SolidColorBrush x:Key="AdditionalTextColor" Color="#FF9E9EA0" />
-    
+    <SolidColorBrush x:Key="ErrorColor" Color="#FFFF0303" />
+
+    <!-- Цвета темы -->
+    <SolidColorBrush x:Key="AdditionalWhite" Color="#FFFAFAFA" />
+
 </ResourceDictionary>
