@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using MySqlX.XDevAPI.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,7 +28,26 @@ namespace RecordSocialServicesProvision
 
         private void ButtonAuthentication_Click(object sender, RoutedEventArgs e)
         {
-
+            ((App)Application.Current).connect.Open();
+            string passwordSQL = "SELECT Password FROM user_worker WHERE login = '" + Login.Text + "'";
+            MySqlCommand passwordCommand = new MySqlCommand(passwordSQL, ((App)Application.Current).connect);
+            object password = passwordCommand.ExecuteScalar();
+            if (password == null)
+            {
+                TextError.Text = "Неверно указан логин";
+            }
+            else if(password.ToString() != Password.Password)
+            {
+                TextError.Text = "Неверно указан пароль";
+            }
+            else
+            {
+                MainWindow mainWindow = new MainWindow();
+                mainWindow.Show();
+                ((App)Application.Current).connect.Close();
+                this.Close();
+            }
+            ((App)Application.Current).connect.Close();
         }
 
         private void Login_GotFocus(object sender, RoutedEventArgs e)

@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:RecordSocialServicesProvision"
         mc:Ignorable="d"
         Title="" Width="1920" Height="1080" 
-        WindowState="Maximized" ResizeMode="NoResize" Background="#FFFAFAFA" FontFamily="Verdana" Style="{StaticResource WindowStyles}">
+        WindowState="Maximized" ResizeMode="NoResize" Background="#FFFAFAFA" FontFamily="Verdana">
     <Grid>
-        
+        <Label Content="Label" HorizontalAlignment="Left" Margin="1005,615,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </Window>

@@ -17,8 +17,16 @@ namespace RecordSocialServicesProvision
     /// </summary>
     public partial class App : Application
     {
-        private static string connStr = "server=localhost;user=root;database=socialservices;password=12345678;";
-        public static MySqlConnection conn = new MySqlConnection(connStr);
+        public MySqlConnection connect { get; set; } = new MySqlConnection();
+
+        protected override void OnStartup(StartupEventArgs e)
+        {
+            base.OnStartup(e);
+
+            string connStr = "server=localhost;user=root;database=socialservices;password=12345678;";
+            connect = new MySqlConnection(connStr);
+        }
+
     }
 
     public class Functions
@@ -38,9 +46,9 @@ namespace RecordSocialServicesProvision
         public static void InputTextBox_LostFocus(object sender, string text)
         {
             TextBox textBox = (TextBox)sender;
-            textBox.TextAlignment = TextAlignment.Center;
             if (textBox.Text == string.Empty)
             {
+                textBox.TextAlignment = TextAlignment.Center;
                 textBox.Foreground = (SolidColorBrush)Application.Current.Resources["AdditionalTextColor"];
                 textBox.Text = text;
             }
