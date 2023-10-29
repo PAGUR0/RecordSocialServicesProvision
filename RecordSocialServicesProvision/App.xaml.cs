@@ -8,6 +8,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Media;
 
+using MySql.Data.MySqlClient;
+
 namespace RecordSocialServicesProvision
 {
     /// <summary>
@@ -15,6 +17,8 @@ namespace RecordSocialServicesProvision
     /// </summary>
     public partial class App : Application
     {
+        private static string connStr = "server=localhost;user=root;database=socialservices;password=12345678;";
+        public static MySqlConnection conn = new MySqlConnection(connStr);
     }
 
     public class Functions
