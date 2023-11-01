@@ -8,7 +8,8 @@
         Title="" Width="1920" Height="1080" 
         WindowState="Maximized" ResizeMode="NoResize" Background="#FFFAFAFA" FontFamily="Verdana">
     <Grid>
-        <Label Content="Label" HorizontalAlignment="Left" Margin="1005,615,0,0" VerticalAlignment="Top"/>
+        
+        <!-- Базовая сетка -->
 
-    </Grid>
+        </Grid>
 </Window>

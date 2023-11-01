@@ -24,4 +24,9 @@
     <Resource Include="res\icon\MainIcon.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="res\model\" />
+    <Folder Include="res\view\" />
+  </ItemGroup>
+
 </Project>
