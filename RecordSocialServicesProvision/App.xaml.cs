@@ -17,21 +17,24 @@ namespace RecordSocialServicesProvision
     /// </summary>
     public partial class App : Application
     {
-        public MySqlConnection connect { get; set; } = new MySqlConnection();
-
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-
-            string connStr = "server=localhost;user=root;database=socialservices;password=12345678;";
-            connect = new MySqlConnection(connStr);
         }
 
     }
 
-    public class Functions
+    public static class MySQLBD
     {
-        // Изменение цвета и выравнивания текста при выборе TextBox
+        private static string connectString = "server=localhost;user=root;database=socialservices;password=12345678;";
+        public static MySqlConnection connect { get; set; } = new MySqlConnection(connectString);
+    }
+
+    public static class Functions
+    {
+        /// <summary>
+        /// Изменение цвета и выравнивания текста при фокусировки на TextBox
+        /// </summary>
         public static void InputTextBox_GotFocus(object sender, string text)
         {
             TextBox textBox = (TextBox)sender;
@@ -42,6 +45,10 @@ namespace RecordSocialServicesProvision
                 textBox.Text = string.Empty;
             }
         }
+
+        /// <summary>
+        /// Изменение цвета и выравнивания текста при расфокусировки с TextBox
+        /// </summary>
 
         public static void InputTextBox_LostFocus(object sender, string text)
         {

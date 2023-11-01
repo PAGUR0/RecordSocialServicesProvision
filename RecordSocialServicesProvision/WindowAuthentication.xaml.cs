@@ -26,6 +26,10 @@ namespace RecordSocialServicesProvision
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Обработка нажатия кнопки "Войти"
+        /// </summary>
+
         private void ButtonAuthentication_Click(object sender, RoutedEventArgs e)
         {
             ((App)Application.Current).connect.Open();
@@ -50,20 +54,40 @@ namespace RecordSocialServicesProvision
             ((App)Application.Current).connect.Close();
         }
 
+        /// <summary>
+        /// Фокусировка на TextBox Login
+        /// Обращение к методу InputTextBox_GotFocus для изменения цвета вводимого текста
+        /// </summary>
+
         private void Login_GotFocus(object sender, RoutedEventArgs e)
         {
             Functions.InputTextBox_GotFocus(sender, "Логин");
         }
+
+        /// <summary>
+        /// Расфокусировка с TextBox Login
+        /// Обращение к методу InputTextBox_LostFocus для изменения цвета введенного текста
+        /// </summary>
 
         private void Login_LostFocus(object sender, RoutedEventArgs e)
         {
             Functions.InputTextBox_LostFocus(sender, "Логин");
         }
 
+        /// <summary>
+        /// Фокусировка на Password
+        /// Скрывается TextBlock 
+        /// </summary>
+
         private void Password_GotFocus(object sender, RoutedEventArgs e)
         {
             PasswordText.Visibility = Visibility.Hidden;
         }
+
+        /// <summary>
+        /// Расфокусировка с Password
+        /// 
+        /// </summary>
 
         private void Password_LostFocus(object sender, RoutedEventArgs e)
         {

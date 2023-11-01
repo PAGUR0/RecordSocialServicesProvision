@@ -14,5 +14,6 @@
 
     <!-- Цвета темы -->
     <SolidColorBrush x:Key="AdditionalWhite" Color="#FFFAFAFA" />
+    <SolidColorBrush x:Key="LightGray" Color="#eaeaeb"/>
 
 </ResourceDictionary>
