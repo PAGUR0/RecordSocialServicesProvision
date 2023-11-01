@@ -19,7 +19,9 @@
         <Grid HorizontalAlignment="Left"
                   Width="400">
 
-            <Border Background="#272B2F"/>
+            <Border Background="{StaticResource LightGray}"/>
+
+            <StackPanel Height="1080" Width="400"/>
         </Grid>
         
         

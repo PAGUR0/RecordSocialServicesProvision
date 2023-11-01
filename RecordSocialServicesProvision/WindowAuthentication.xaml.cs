@@ -27,14 +27,14 @@ namespace RecordSocialServicesProvision
         }
 
         /// <summary>
-        /// Обработка нажатия кнопки "Войти"
+        /// При нажатии Button ButtonAuthentication, проверяется введенные логин и пароль запросом к таблице БД для их хрениния
+        /// Если значения не соответствуют содержимому таблицы выводится ошибка. Иначе открывается окно MainWindow и закрывается текущее
         /// </summary>
-
         private void ButtonAuthentication_Click(object sender, RoutedEventArgs e)
         {
-            ((App)Application.Current).connect.Open();
+            MySQLBD.connect.Open();
             string passwordSQL = "SELECT Password FROM user_worker WHERE login = '" + Login.Text + "'";
-            MySqlCommand passwordCommand = new MySqlCommand(passwordSQL, ((App)Application.Current).connect);
+            MySqlCommand passwordCommand = new MySqlCommand(passwordSQL, MySQLBD.connect);
             object password = passwordCommand.ExecuteScalar();
             if (password == null)
             {
@@ -48,47 +48,39 @@ namespace RecordSocialServicesProvision
             {
                 MainWindow mainWindow = new MainWindow();
                 mainWindow.Show();
-                ((App)Application.Current).connect.Close();
+                MySQLBD.connect.Close();
                 this.Close();
             }
-            ((App)Application.Current).connect.Close();
+            MySQLBD.connect.Close();
         }
 
         /// <summary>
-        /// Фокусировка на TextBox Login
-        /// Обращение к методу InputTextBox_GotFocus для изменения цвета вводимого текста
+        /// При фокусировке на TextBox Login, изменяется цвет содержимого TextBox через InputTextBox_GotFocus
         /// </summary>
-
         private void Login_GotFocus(object sender, RoutedEventArgs e)
         {
             Functions.InputTextBox_GotFocus(sender, "Логин");
         }
 
         /// <summary>
-        /// Расфокусировка с TextBox Login
-        /// Обращение к методу InputTextBox_LostFocus для изменения цвета введенного текста
+        /// При расфокусировке с TextBox Login, изменяется цвет содержимого TextBox через InputTextBox_LostFocus 
         /// </summary>
-
         private void Login_LostFocus(object sender, RoutedEventArgs e)
         {
             Functions.InputTextBox_LostFocus(sender, "Логин");
         }
 
         /// <summary>
-        /// Фокусировка на Password
-        /// Скрывается TextBlock 
+        /// При фокусировке на Password, скрывается TextBlock PasswordText
         /// </summary>
-
         private void Password_GotFocus(object sender, RoutedEventArgs e)
         {
             PasswordText.Visibility = Visibility.Hidden;
         }
 
         /// <summary>
-        /// Расфокусировка с Password
-        /// 
+        /// При расфокусировке с PasswordBox Password, показывает TextBlock PasswordText, если Password не заполнено
         /// </summary>
-
         private void Password_LostFocus(object sender, RoutedEventArgs e)
         {
             if(Password.Password == "")

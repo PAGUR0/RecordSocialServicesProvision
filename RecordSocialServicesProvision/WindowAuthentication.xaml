@@ -5,61 +5,64 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:RecordSocialServicesProvision"
         mc:Ignorable="d"
-        Title="Авторизация" Height="400" Width="450" WindowStartupLocation="CenterOwner" ResizeMode="NoResize"  FontFamily="{StaticResource BasicFont}" Icon="/res/icon/MainIcon.png" FontSize="16"  >
+        
+        Title="Авторизация" 
+        Height="400" Width="450" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterOwner" 
+        FontFamily="{StaticResource BasicFont}" FontSize="16"
+        Icon="/res/icon/MainIcon.png">
 
     <Grid Background="{StaticResource AdditionalWhite}">
+        
+        <!-- Базовая сетка -->
         <Grid.RowDefinitions>
             <RowDefinition Height="3*"/>
             <RowDefinition Height="60*"/>
         </Grid.RowDefinitions>
+
+        <!-- Текст с сообщением об ошибке -->
         <TextBlock x:Name="TextError"  
-                 HorizontalAlignment="Center" Margin="0,7,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" 
-                 Style="{StaticResource ErrorTextStyle}"
-                 FontSize="16" Grid.Row="1"
+                   HorizontalAlignment="Center" Margin="0,7,0,0" VerticalAlignment="Top" Grid.Row="1"
+                   Text="" Style="{StaticResource ErrorTextStyle}" FontSize="16" TextWrapping="Wrap"
                  />
 
-        <TextBlock Text="Войти"
-                 HorizontalAlignment="Center" Margin="0,57,0,0" TextWrapping="Wrap" VerticalAlignment="Top" 
-                 Style="{StaticResource BasicTextStyle}"
-                 FontSize="48" Grid.Row="1"
-                 />
+        <!-- Текст для о возможности входа -->
+        <TextBlock HorizontalAlignment="Center" Margin="0,57,0,0" VerticalAlignment="Top"  Grid.Row="1"
+                   TextWrapping="Wrap" 
+                   Text="Войти" Style="{StaticResource BasicTextStyle}" FontSize="48" 
+                   />
 
+        <!-- Поле для ввода логина -->
         <TextBox x:Name="Login" 
-                 HorizontalAlignment="Center" Margin="0,136,0,0" TextWrapping="Wrap" Text="Логин" VerticalAlignment="Top" Width="300"
-                 Style="{StaticResource AdditionalTextBoxStyle}"
-                 FontSize="28"
-                 TextAlignment="Center" 
-                 Background="White" 
-                 BorderBrush="{StaticResource AdditionalTextColor}"
+                 HorizontalAlignment="Center" Margin="0,136,0,0"  VerticalAlignment="Top" Width="300" Grid.Row="1"
+                 Text="Логин" Style="{StaticResource AdditionalTextBoxStyle}" FontSize="28" TextWrapping="Wrap" TextAlignment="Center"  
+                 Background="White" BorderBrush="{StaticResource AdditionalTextColor}"
                  GotFocus="Login_GotFocus" LostFocus="Login_LostFocus"
-                 MaxLength="16" Grid.Row="1"
+                 MaxLength="16"
                  />
 
+        <!-- Поле для ввода пароля -->
         <PasswordBox x:Name="Password" 
-                 HorizontalAlignment="Center" Margin="0,187,0,0"  VerticalAlignment="Top" Width="300"
-                 Style="{StaticResource BasicPassowordStyle}"
-                 FontSize="28"
-                 Background="White" 
-                 BorderBrush="{StaticResource AdditionalTextColor}"
+                 HorizontalAlignment="Center" Margin="0,187,0,0"  VerticalAlignment="Top" Width="300" Grid.Row="1"
+                 Style="{StaticResource BasicPassowordStyle}" FontSize="28"
+                 Background="White" BorderBrush="{StaticResource AdditionalTextColor}"
                  GotFocus="Password_GotFocus" LostFocus="Password_LostFocus"
-                 MaxLength="8" Grid.Row="1"
+                 MaxLength="8" 
                  />
 
-        <TextBlock x:Name="PasswordText" Text="Пароль"
-                 HorizontalAlignment="Center" Margin="0,188,0,0" TextWrapping="Wrap"  VerticalAlignment="Top"
-                 Style="{StaticResource AdditionalTextBlockStyle}"
-                 FontSize="28"
-                 Grid.ZIndex="1"
-                 IsHitTestVisible="False" Grid.Row="1"
+        <!-- Текст подсказывающий что это поле для ввода пароля -->
+        <TextBlock x:Name="PasswordText" 
+                 HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.ZIndex="1"
+                 Text="Пароль" Style="{StaticResource AdditionalTextBlockStyle}" FontSize="28" TextWrapping="Wrap"
+                 IsHitTestVisible="False" 
                  />
 
+        <!-- Кнопока входа -->
         <Button x:Name="ButtonAuthentication" 
-                 Style="{DynamicResource StyleButtonAuthorisation}" Height="50" Content="Вход" HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" 
-                 FontSize="28"
-                 Background="{StaticResource BasicButtonColor}" Width="160" 
-                 Click="ButtonAuthentication_Click" Grid.Row="1"
-                 />
-
-
+                HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="50" Width="160" Grid.Row="1"
+                Content="Вход" FontSize="28"
+                Background="{StaticResource BasicButtonColor}" Style="{DynamicResource StyleButtonAuthorisation}"  
+                Click="ButtonAuthentication_Click" 
+                />
     </Grid>
 </Window>
