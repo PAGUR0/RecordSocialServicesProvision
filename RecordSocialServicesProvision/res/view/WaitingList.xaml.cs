@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RecordSocialServicesProvision
+namespace RecordSocialServicesProvision.res.view
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for WaitingList.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class WaitingList : UserControl
     {
-        public MainWindow()
+        public WaitingList()
         {
             InitializeComponent();
-        }
-
-        private void Btn_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

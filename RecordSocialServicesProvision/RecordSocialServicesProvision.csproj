@@ -9,7 +9,10 @@
 
   <ItemGroup>
     <None Remove="New.png" />
+    <None Remove="res\icon\AddApplication.png" />
+    <None Remove="res\icon\Listing.png" />
     <None Remove="res\icon\MainIcon.png" />
+    <None Remove="res\icon\WaitingList.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -21,12 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="res\icon\AddApplication.png" />
+    <Resource Include="res\icon\Listing.png" />
+    <Resource Include="res\icon\WaitingList.png" />
     <Resource Include="res\icon\MainIcon.png" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="res\model\" />
-    <Folder Include="res\view\" />
   </ItemGroup>
 
 </Project>

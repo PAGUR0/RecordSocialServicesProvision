@@ -3,30 +3,172 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:RecordSocialServicesProvision"
+        xmlns:vm="clr-namespace:RecordSocialServicesProvision.res.view_model"
+        xmlns:Menu="clr-namespace:RecordSocialServicesProvision.res.utilities"
         mc:Ignorable="d"
-        Title="" Width="1920" Height="1080" 
-        WindowState="Maximized" ResizeMode="NoResize" Background="#FFFAFAFA" FontFamily="Verdana">
-    <Grid>
         
+        Title="МБУ «Пензенский городской комплексный центр срочной социальной помощи населению»" 
+        Width="1920" Height="1080" 
+        WindowState="Maximized" 
+        FontFamily="{StaticResource BasicFont}" FontSize="16"
+        Icon="/res/icon/MainIcon.png">
+
+    <Grid Background="{StaticResource AdditionalWhiteS}">
+
         <!-- Базовая сетка -->
-        
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="400"/>
             <ColumnDefinition Width="1*"/>
         </Grid.ColumnDefinitions>
-        
+
+        <!-- Навигационная панель -->
         <Grid HorizontalAlignment="Left"
                   Width="400">
 
-            <Border Background="{StaticResource LightGray}"/>
+            <Border Background="{StaticResource AdditionalLightGrayS}"/>
 
-            <StackPanel Height="1080" Width="400"/>
+            <!-- Разметка для кнопок выбора функций админа -->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="45"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="1*"/>
+                </Grid.ColumnDefinitions>
+
+                <Border Background="{StaticResource AdditionalGrayS}" Grid.ColumnSpan="2"/>
+
+                <!-- Функции обычного пользователя -->
+                <Menu:Btn Style="{DynamicResource ButtonMenuAdmin}"
+                          Command="{Binding HomeCommand}"
+                          IsChecked="True" Checked="Btn_Checked">
+                    <Grid>
+                        <TextBlock Text="Базовые фунции"
+                                       Style="{StaticResource TextMenuAdminStyle}" HorizontalAlignment="Center" />
+                    </Grid>
+                </Menu:Btn>
+
+                <!-- Функции администратора -->
+                <Menu:Btn Style="{DynamicResource ButtonMenuAdmin}"
+                          Command="{Binding HomeCommand}" Grid.Column="1">
+                    <Grid>
+                        <TextBlock Text="Расширенные функции"
+                                   Style="{StaticResource TextMenuAdminStyle}" 
+                                   HorizontalAlignment="Center" />
+
+                    </Grid>
+                </Menu:Btn>
+            </Grid>
+
+            <StackPanel Width="400"
+                        VerticalAlignment="Center">
+
+                <!-- Очередь на получение услуг -->
+                <Menu:Btn Style="{DynamicResource ButtonMenu}"
+                          Command="{Binding HomeCommand}"
+                          IsChecked="True">
+                    <Grid>
+                        <Image Source="res/icon/WaitingList.png"
+                                   Style="{StaticResource ImageMenuStyle}" Margin="25,9,343,9" />
+                        <TextBlock Text="Очередь"
+                                       Style="{StaticResource TextMenuStyle}" />
+
+                    </Grid>
+                </Menu:Btn>
+
+                <!-- Подать заявления -->
+                <Menu:Btn Style="{DynamicResource ButtonMenu}"
+                          Command="{Binding HomeCommand}"
+                          >
+                    <Grid>
+                        <Image Source="res/icon/AddApplication.png"
+                                   Style="{StaticResource ImageMenuStyle}" Margin="25,9,343,9" />
+                        <TextBlock Text="Подать заявления"
+                                       Style="{StaticResource TextMenuStyle}" />
+
+                    </Grid>
+                </Menu:Btn>
+
+                <!-- Отображение поданных заявлений -->
+                <Menu:Btn Style="{DynamicResource ButtonMenu}"
+                          Command="{Binding HomeCommand}"
+                          >
+                    <Grid>
+                        <Image Source="res/icon/Listing.png"
+                                   Style="{StaticResource ImageMenuStyle}" Margin="25,9,343,9" />
+                        <TextBlock Text="Поданные заявления"
+                                       Style="{StaticResource TextMenuStyle}" />
+
+                    </Grid>
+                </Menu:Btn>
+            </StackPanel>
+
+            <!-- Информация о пользователе -->
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="2*"/>
+                    <ColumnDefinition Width="6*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="2*"/>
+                </Grid.RowDefinitions>
+
+                <Border Background="{StaticResource AdditionalGrayS}" Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="2" Margin="0,0,0,0"/>
+
+                <!-- Логин  -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top" Style="{StaticResource AdditionalTextBlockStyle}" 
+                           Grid.Row="1"/>
+                <TextBlock x:Name="LoginText" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
+                           Grid.Row="1" Grid.Column="2"/>
+                
+                <!-- Статус -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top" Style="{StaticResource AdditionalTextBlockStyle}"
+                           Grid.Row="2"/>
+                <TextBlock x:Name="StatusText"
+                           HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
+                           Grid.Row="2" Grid.Column="2"/>
+
+                <!-- Фамилия -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Фамилия: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockStyle}"
+                           Grid.Row="3"/>
+                <TextBlock x:Name="SurnameText"
+                           HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
+                           Grid.Row="3" Grid.Column="2"/>
+
+                <!-- Имя -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Имя: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockStyle}"
+                           Grid.Row="4" />
+                <TextBlock x:Name="NameText"
+                           HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
+                           Grid.Row="4" Grid.Column="2"/>
+
+                <!-- Отчество -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Отчество: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockStyle}" 
+                           Grid.Row="5"/>
+                <TextBlock x:Name="ParonymicText"
+                           HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
+                           Grid.Row="5" Grid.Column="2"/>
+
+            </Grid>
+
+
+
         </Grid>
-        
-        
-        
 
+        <Grid Grid.Column="1">
+
+            <ContentControl x:Name="Pages"
+                                Content="{Binding CurrentView}" />
 
         </Grid>
+
+    </Grid>
+
 </Window>

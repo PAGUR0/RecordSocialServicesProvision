@@ -13,21 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace RecordSocialServicesProvision
+namespace RecordSocialServicesProvision.res.view
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for AddApplications.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddApplications : UserControl
     {
-        public MainWindow()
+        public AddApplications()
         {
             InitializeComponent();
-        }
-
-        private void Btn_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

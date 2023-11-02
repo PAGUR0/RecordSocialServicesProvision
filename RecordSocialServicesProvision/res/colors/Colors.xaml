@@ -11,7 +11,11 @@
     <SolidColorBrush x:Key="ErrorColor" Color="#FFFF0303" />
 
     <!-- Цвета темы -->
-    <SolidColorBrush x:Key="AdditionalWhite" Color="#FFFAFAFA" />
-    <SolidColorBrush x:Key="LightGray" Color="#eaeaeb"/>
+    <Color x:Key="AdditionalWhite">#FFFAFAFA</Color>
+    <SolidColorBrush x:Key="AdditionalWhiteS" Color="{StaticResource AdditionalWhite}" />
+    <Color x:Key="AdditionalLightGray">#eaeaeb</Color>
+    <SolidColorBrush x:Key="AdditionalLightGrayS" Color="{StaticResource AdditionalLightGray}"/>
+    <Color x:Key="AdditionalGray">#dbdbdc</Color>
+    <SolidColorBrush x:Key="AdditionalGrayS" Color="{StaticResource AdditionalGray}"/>
 
 </ResourceDictionary>

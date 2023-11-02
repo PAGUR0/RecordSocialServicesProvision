@@ -31,5 +31,58 @@
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
-   
+    
+    <!-- Стиль текста элементов меню -->
+    <Style x:Key="TextMenuStyle"
+           TargetType="TextBlock">
+
+        <Setter Property="FontFamily"
+                Value="{StaticResource BasicFont}" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Foreground"
+                Value="{StaticResource AdditionalTextColor}" />
+        <Setter Property="FontSize"
+                Value="20" />
+        <Setter Property="Margin"
+                Value="70,0,0,0" />
+        <Setter Property="FontWeight"
+                Value="Bold"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <!-- Стиль текста элементов меню -->
+    <Style x:Key="TextMenuAdminStyle"
+           TargetType="TextBlock">
+
+        <Setter Property="FontFamily"
+                Value="{StaticResource BasicFont}" />
+        <Setter Property="VerticalAlignment"
+                Value="Center" />
+        <Setter Property="HorizontalAlignment"
+                Value="Left" />
+        <Setter Property="Foreground"
+                Value="{StaticResource AdditionalTextColor}" />
+        <Setter Property="FontSize"
+                Value="12" />
+        <Setter Property="Margin"
+                Value="0,0,0,0" />
+        <Setter Property="FontWeight"
+                Value="Bold"/>
+
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding IsChecked, RelativeSource={RelativeSource AncestorType={x:Type RadioButton}}}" Value="True">
+                <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+
 </ResourceDictionary>

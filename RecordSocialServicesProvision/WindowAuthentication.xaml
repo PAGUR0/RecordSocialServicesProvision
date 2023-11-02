@@ -12,7 +12,7 @@
         FontFamily="{StaticResource BasicFont}" FontSize="16"
         Icon="/res/icon/MainIcon.png">
 
-    <Grid Background="{StaticResource AdditionalWhite}">
+    <Grid Background="{StaticResource AdditionalWhiteS}">
         
         <!-- Базовая сетка -->
         <Grid.RowDefinitions>
@@ -43,19 +43,19 @@
 
         <!-- Поле для ввода пароля -->
         <PasswordBox x:Name="Password" 
-                 HorizontalAlignment="Center" Margin="0,187,0,0"  VerticalAlignment="Top" Width="300" Grid.Row="1"
-                 Style="{StaticResource BasicPassowordStyle}" FontSize="28"
-                 Background="White" BorderBrush="{StaticResource AdditionalTextColor}"
-                 GotFocus="Password_GotFocus" LostFocus="Password_LostFocus"
-                 MaxLength="8" 
-                 />
+                     HorizontalAlignment="Center" Margin="0,187,0,0"  VerticalAlignment="Top" Width="300" Grid.Row="1"
+                     Style="{StaticResource BasicPassowordStyle}" FontSize="28"
+                     Background="White" BorderBrush="{StaticResource AdditionalTextColor}"
+                     GotFocus="Password_GotFocus" LostFocus="Password_LostFocus"
+                     MaxLength="8" 
+                     />
 
         <!-- Текст подсказывающий что это поле для ввода пароля -->
         <TextBlock x:Name="PasswordText" 
-                 HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.ZIndex="1"
-                 Text="Пароль" Style="{StaticResource AdditionalTextBlockStyle}" FontSize="28" TextWrapping="Wrap"
-                 IsHitTestVisible="False" 
-                 />
+                   HorizontalAlignment="Center" Margin="0,188,0,0" VerticalAlignment="Top" Grid.Row="1" Grid.ZIndex="1"
+                   Text="Пароль" Style="{StaticResource AdditionalTextBlockStyle}" FontSize="28" TextWrapping="Wrap"
+                   IsHitTestVisible="False" 
+                   />
 
         <!-- Кнопока входа -->
         <Button x:Name="ButtonAuthentication" 
