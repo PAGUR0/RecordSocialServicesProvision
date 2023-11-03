@@ -5,14 +5,15 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:vm="clr-namespace:RecordSocialServicesProvision.res.view_model"
              mc:Ignorable="d" 
-             d:DesignHeight="450" d:DesignWidth="800"
-             Style="{StaticResource Page_Style}">
+             d:DesignHeight="1080" d:DesignWidth="1920"
+             Style="{StaticResource PageStyle}">
 
     <UserControl.DataContext>
         <vm:AddApplicationsVM />
     </UserControl.DataContext>
 
     <Grid>
-            
+        <CheckBox Content="CheckBox" HorizontalAlignment="Left" Margin="1388,495,0,0" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>

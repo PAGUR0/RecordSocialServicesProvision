@@ -13,6 +13,10 @@
         FontFamily="{StaticResource BasicFont}" FontSize="16"
         Icon="/res/icon/MainIcon.png">
 
+    <Window.DataContext>
+        <vm:NavigationVM />
+    </Window.DataContext>
+    
     <Grid Background="{StaticResource AdditionalWhiteS}">
 
         <!-- Базовая сетка -->
@@ -67,7 +71,7 @@
 
                 <!-- Очередь на получение услуг -->
                 <Menu:Btn Style="{DynamicResource ButtonMenu}"
-                          Command="{Binding HomeCommand}"
+                          Command="{Binding WaitingListCommand}"
                           IsChecked="True">
                     <Grid>
                         <Image Source="res/icon/WaitingList.png"
@@ -80,7 +84,7 @@
 
                 <!-- Подать заявления -->
                 <Menu:Btn Style="{DynamicResource ButtonMenu}"
-                          Command="{Binding WaitingListCommand}"
+                          Command="{Binding AddApplicationsCommand}"
                           >
                     <Grid>
                         <Image Source="res/icon/AddApplication.png"
@@ -161,8 +165,6 @@
                            Grid.Row="5" Grid.Column="2"/>
 
             </Grid>
-
-
 
         </Grid>
 
