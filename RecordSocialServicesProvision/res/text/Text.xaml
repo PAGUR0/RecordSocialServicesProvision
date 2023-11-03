@@ -20,6 +20,12 @@
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
+    <Style x:Key="AdditionalTextBlockBoldStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
     <!-- Стили для TextBox -->
     <Style x:Key="AdditionalTextBoxStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />

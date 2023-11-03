@@ -6,9 +6,11 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Controls.Primitives;
 using System.Windows.Media;
 
 using MySql.Data.MySqlClient;
+using Org.BouncyCastle.X509;
 
 namespace RecordSocialServicesProvision
 {
@@ -22,12 +24,6 @@ namespace RecordSocialServicesProvision
             base.OnStartup(e);
         }
 
-    }
-
-    public static class MySQLBD
-    {
-        private static string connectString = "server=localhost;user=root;database=socialservices;password=12345678;";
-        public static MySqlConnection connect { get; set; } = new MySqlConnection(connectString);
     }
 
     public static class Functions
@@ -60,5 +56,6 @@ namespace RecordSocialServicesProvision
                 textBox.Text = text;
             }
         }
+
     }
 }

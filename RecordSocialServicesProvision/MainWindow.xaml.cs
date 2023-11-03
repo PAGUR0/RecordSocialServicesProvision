@@ -20,13 +20,40 @@ namespace RecordSocialServicesProvision
     /// </summary>
     public partial class MainWindow : Window
     {
-        public MainWindow()
+        private String login;
+        private MySQLBD mySQLBD = MySQLBD.getInstanse();
+        private bool admin;
+
+        public MainWindow(String login)
         {
+            this.login = login;
+
             InitializeComponent();
+            createProfileContent();
         }
 
         private void Btn_Checked(object sender, RoutedEventArgs e)
         {
+
+        }
+
+        private void createProfileContent()
+        {
+            String[] profileContent = mySQLBD.getUserWorker(login);
+            LoginText.Text = login;
+            NameText.Text = profileContent[0];
+            SurnameText.Text = profileContent[1];
+            PatronymicText.Text = profileContent[2];
+            if (profileContent[3] == "1") 
+            {
+                admin = true;
+                StatusText.Text = "Администратор";
+            }
+            else
+            {
+                admin = false;
+                StatusText.Text = "Пользователь";
+            }
 
         }
     }

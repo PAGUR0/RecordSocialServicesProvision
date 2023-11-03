@@ -13,6 +13,7 @@
     </UserControl.DataContext>
 
     <Grid>
-            
+        <TextBlock HorizontalAlignment="Left" Margin="372,281,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top"/>
+
     </Grid>
 </UserControl>

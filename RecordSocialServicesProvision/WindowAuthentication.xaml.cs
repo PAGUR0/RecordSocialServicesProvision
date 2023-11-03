@@ -21,6 +21,8 @@ namespace RecordSocialServicesProvision
     /// </summary>
     public partial class WindowAuthentication : Window
     {
+        private MySQLBD mySqlBD = MySQLBD.getInstanse();
+
         public WindowAuthentication()
         {
             InitializeComponent();
@@ -32,26 +34,17 @@ namespace RecordSocialServicesProvision
         /// </summary>
         private void ButtonAuthentication_Click(object sender, RoutedEventArgs e)
         {
-            MySQLBD.connect.Open();
-            string passwordSQL = "SELECT Password FROM user_worker WHERE login = '" + Login.Text + "'";
-            MySqlCommand passwordCommand = new MySqlCommand(passwordSQL, MySQLBD.connect);
-            object password = passwordCommand.ExecuteScalar();
-            if (password == null)
+            string password = mySqlBD.getPassword(Login.Text);
+            if (password != " " && password == Password.Password)
             {
-                TextError.Text = "Неверно указан логин";
-            }
-            else if(password.ToString() != Password.Password)
-            {
-                TextError.Text = "Неверно указан пароль";
+                MainWindow mainWindow = new MainWindow(Login.Text);
+                mainWindow.Show();
+                this.Close();
             }
             else
             {
-                MainWindow mainWindow = new MainWindow();
-                mainWindow.Show();
-                MySQLBD.connect.Close();
-                this.Close();
+                TextError.Text = "Неверно указан логин или пароль";
             }
-            MySQLBD.connect.Close();
         }
 
         /// <summary>
