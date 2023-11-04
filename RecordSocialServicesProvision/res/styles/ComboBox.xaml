@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Style x:Key="CustomComboBoxStyle" TargetType="ComboBox">
+        <!-- Здесь вы можете настроить внешний вид кнопки ComboBox -->
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="ComboBox">
+                    <Grid>
+                        <!-- Ваша настраиваемая кнопка -->
+                        <Button Background="White" BorderBrush="{StaticResource AdditionalTextColor}"/>
+                        <!-- Ваш список выбора (ItemsPresenter) -->
+                        <Popup Name="PART_Popup" IsOpen="{TemplateBinding IsDropDownOpen}" Placement="Bottom">
+                            <Border Name="DropDownBorder" Background="White" BorderBrush="{StaticResource AdditionalTextColor}" BorderThickness="1">
+                                <ScrollViewer>
+                                    <ItemsPresenter />
+                                </ScrollViewer>
+                            </Border>
+                        </Popup>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+</ResourceDictionary>

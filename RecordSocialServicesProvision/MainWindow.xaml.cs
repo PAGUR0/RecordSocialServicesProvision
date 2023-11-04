@@ -47,12 +47,12 @@ namespace RecordSocialServicesProvision
             if (profileContent[3] == "1") 
             {
                 admin = true;
-                StatusText.Text = "Администратор";
+                RoleText.Text = "Администратор";
             }
             else
             {
                 admin = false;
-                StatusText.Text = "Пользователь";
+                RoleText.Text = "Пользователь";
             }
 
         }

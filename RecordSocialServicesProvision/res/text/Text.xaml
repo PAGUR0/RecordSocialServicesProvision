@@ -15,6 +15,12 @@
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
 
+    <Style x:Key="HeadlineTextStyle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource BasicBlueColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+        <Setter Property="FontWeight" Value="Bold"/>
+    </Style>
+
     <Style x:Key="AdditionalTextBlockStyle" TargetType="TextBlock">
         <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
@@ -27,6 +33,10 @@
     </Style>
 
     <!-- Стили для TextBox -->
+    <Style x:Key="BasicTextBoxStyle" TargetType="TextBox">
+        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+    </Style>
     <Style x:Key="AdditionalTextBoxStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
@@ -37,7 +47,26 @@
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
-    
+
+    <!-- Стили для Label -->
+    <Style x:Key="BasicLabelStyle" TargetType="Label">
+        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+    </Style>
+
+    <!-- Стили для ComboBox -->
+    <Style x:Key="BasicComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+    </Style>
+
+    <!-- Стили для CheckBox -->
+    <Style x:Key="BasicCheckBoxStyle" TargetType="CheckBox">
+        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
+        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+    </Style>
+
+
     <!-- Стиль текста элементов меню -->
     <Style x:Key="TextMenuStyle"
            TargetType="TextBlock">

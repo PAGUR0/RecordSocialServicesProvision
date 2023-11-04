@@ -11,8 +11,8 @@
                 <ResourceDictionary Source="/res/styles/Image.xaml" />
                 <ResourceDictionary Source="/res/styles/Button.xaml" />
                 <ResourceDictionary Source="/res/styles/Page.xaml" />
+                <ResourceDictionary Source="/res/styles/ComboBox.xaml"/>
                 <ResourceDictionary Source="/res/text/Text.xaml" />
-                <ResourceDictionary Source="/res/text/String.xaml"/>
                 <ResourceDictionary Source="/res/utilities/DataTemplate.xaml"/>
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

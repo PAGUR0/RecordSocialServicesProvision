@@ -61,7 +61,7 @@
         <Button x:Name="ButtonAuthentication" 
                 HorizontalAlignment="Center" Margin="0,250,0,0" VerticalAlignment="Top" Height="50" Width="160" Grid.Row="1"
                 Content="Вход" FontSize="28"
-                Background="{StaticResource BasicButtonColor}" Style="{DynamicResource StyleButtonAuthorisation}"  
+                Background="{StaticResource BasicBlueColor}" Style="{DynamicResource StyleButton}"  
                 Click="ButtonAuthentication_Click" 
                 />
     </Grid>

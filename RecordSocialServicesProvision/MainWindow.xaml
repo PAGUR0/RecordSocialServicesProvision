@@ -16,7 +16,7 @@
     <Window.DataContext>
         <vm:NavigationVM />
     </Window.DataContext>
-    
+
     <Grid Background="{StaticResource AdditionalWhiteS}">
 
         <!-- Базовая сетка -->
@@ -116,53 +116,60 @@
                     <ColumnDefinition Width="7*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="70*"/>
+                    <RowDefinition Height="60*"/>
                     <RowDefinition Height="3*"/>
                     <RowDefinition Height="3*"/>
+                    <RowDefinition Height="3*"/>
+                    <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="2*"/>
                 </Grid.RowDefinitions>
 
-                <Border Grid.Row="1" Grid.RowSpan="6" Grid.ColumnSpan="2" Margin="0,0,0,0">
+                <Border Grid.Row="1" Grid.RowSpan="7" Grid.ColumnSpan="2" Margin="0,0,0,0">
                     <Border.Background>
                         <SolidColorBrush Color="{StaticResource AdditionalGray}"/>
                     </Border.Background>
                 </Border>
 
+                <!-- Профиль -->
+                <TextBlock HorizontalAlignment="Left" Margin="119,0,0,0" TextWrapping="Wrap" Text="Пользователь" VerticalAlignment="Center" Style="{StaticResource HeadlineTextStyle}"
+                           Grid.Row="1" FontSize="20" Grid.ColumnSpan="2"/>
+
                 <!-- Статус -->
-                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Статус:" VerticalAlignment="Top" Style="{StaticResource AdditionalTextBlockBoldStyle}"
-                           Grid.Row="1"/>
-                <TextBlock x:Name="StatusText"
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Роль:" VerticalAlignment="Top" Style="{StaticResource AdditionalTextBlockBoldStyle}"
+                           Grid.Row="2"/>
+                <TextBlock x:Name="RoleText"
                            HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
-                           Grid.Row="1" Grid.Column="2"/>
+                           Grid.Row="2" Grid.Column="2"/>
 
                 <!-- Логин  -->
                 <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Логин:" VerticalAlignment="Top" Style="{StaticResource AdditionalTextBlockBoldStyle}" 
-                           Grid.Row="2"/>
+                           Grid.Row="3"/>
                 <TextBlock x:Name="LoginText" HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Style="{StaticResource BasicTextStyle}" 
-                           Grid.Row="2" Grid.Column="2"/>
+                           Grid.Row="3" Grid.Column="2"/>
 
                 <!-- Фамилия -->
                 <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Фамилия: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockBoldStyle}"
-                           Grid.Row="3"/>
+                           Grid.Row="4"/>
                 <TextBlock x:Name="SurnameText"
-                           HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}" 
-                           Grid.Row="3" Grid.Column="2"/>
-
-                <!-- Имя -->
-                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Имя: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockBoldStyle}"
-                           Grid.Row="4" />
-                <TextBlock x:Name="NameText"
                            HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}" 
                            Grid.Row="4" Grid.Column="2"/>
 
-                <!-- Отчество -->
-                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Отчество: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockBoldStyle}" 
-                           Grid.Row="5"/>
-                <TextBlock x:Name="PatronymicText"
+                <!-- Имя -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Имя: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockBoldStyle}"
+                           Grid.Row="5" />
+                <TextBlock x:Name="NameText"
                            HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}" 
                            Grid.Row="5" Grid.Column="2"/>
+
+                <!-- Отчество -->
+                <TextBlock HorizontalAlignment="Left" Margin="10,0,0,0" TextWrapping="Wrap" Text="Отчество: " VerticalAlignment="Center" Style="{StaticResource AdditionalTextBlockBoldStyle}" 
+                           Grid.Row="6"/>
+                <TextBlock x:Name="PatronymicText"
+                           HorizontalAlignment="Left" Margin="0,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Style="{StaticResource BasicTextStyle}" 
+                           Grid.Row="6" Grid.Column="2"/>
+
 
             </Grid>
 
@@ -170,8 +177,7 @@
 
         <Grid Grid.Column="1">
 
-            <ContentControl x:Name="Pages"
-                                Content="{Binding CurrentView}" />
+            <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />
 
         </Grid>
 
