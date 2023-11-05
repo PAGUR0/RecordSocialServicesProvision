@@ -36,26 +36,29 @@
     <Style x:Key="BasicTextBoxStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+        <Setter Property="BorderBrush" Value="{Binding Mode=OneWay, Source={StaticResource AdditionalTextColor}}"/>
+        <Setter Property="SelectionBrush" Value="{Binding Mode=OneWay, Source={StaticResource BasicBlueColor}}"/>
+        <Setter Property="Background" Value="White"/>
     </Style>
     <Style x:Key="AdditionalTextBoxStyle" TargetType="TextBox">
         <Setter Property="Foreground" Value="{StaticResource AdditionalTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+        <Setter Property="BorderBrush" Value="{Binding Mode=OneWay, Source={StaticResource AdditionalTextColor}}"/>
+        <Setter Property="SelectionBrush" Value="{Binding Mode=OneWay, Source={StaticResource BasicBlueColor}}"/>
+        <Setter Property="Background" Value="White"/>
     </Style>
 
     <!-- Стили для PasswordBox -->
     <Style x:Key="BasicPassowordStyle" TargetType="PasswordBox">
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
+        <Setter Property="BorderBrush" Value="{Binding Mode=OneWay, Source={StaticResource AdditionalTextColor}}"/>
+        <Setter Property="SelectionBrush" Value="{Binding Mode=OneWay, Source={StaticResource BasicBlueColor}}"/>
+        <Setter Property="Background" Value="White"/>
     </Style>
 
     <!-- Стили для Label -->
     <Style x:Key="BasicLabelStyle" TargetType="Label">
-        <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
-        <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
-    </Style>
-
-    <!-- Стили для ComboBox -->
-    <Style x:Key="BasicComboBoxStyle" TargetType="ComboBox">
         <Setter Property="Foreground" Value="{StaticResource BasicTextColor}" />
         <Setter Property="FontFamily" Value="{StaticResource BasicFont}" />
     </Style>
