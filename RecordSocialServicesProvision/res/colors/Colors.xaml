@@ -8,8 +8,10 @@
     <SolidColorBrush x:Key="BasicBlueInvertColor" Color="{StaticResource BlueInvertColor}" />
     
     <!-- Цвета для текста -->
-    <SolidColorBrush x:Key="BasicTextColor" Color="#383A42" />
-    <SolidColorBrush x:Key="AdditionalTextColor" Color="#FF9E9EA0" />
+    <Color x:Key="BasicGrayTextColor">#383A42</Color>
+    <SolidColorBrush x:Key="BasicTextColor" Color="{StaticResource BasicGrayTextColor}" />
+    <Color x:Key="AdditionalGrayTextColor">#FF9E9EA0</Color>
+    <SolidColorBrush x:Key="AdditionalTextColor" Color="{StaticResource AdditionalGrayTextColor}" />
     <SolidColorBrush x:Key="ErrorColor" Color="#FFFF0303" />
 
     <!-- Цвета темы -->

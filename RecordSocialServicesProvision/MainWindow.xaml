@@ -45,9 +45,8 @@
                 <Border Background="{StaticResource AdditionalGrayS}" Grid.ColumnSpan="2"/>
 
                 <!-- Функции обычного пользователя -->
-                <Menu:Btn Style="{DynamicResource ButtonMenuAdmin}"
-                          Command="{Binding HomeCommand}"
-                          IsChecked="True" Checked="Btn_Checked">
+                <Menu:Btn x:Name="basicBtn" Style="{DynamicResource ButtonMenuAdmin}"
+                          IsChecked="True">
                     <Grid>
                         <TextBlock Text="Базовые фунции"
                                        Style="{StaticResource TextMenuAdminStyle}" HorizontalAlignment="Center" />
@@ -55,8 +54,7 @@
                 </Menu:Btn>
 
                 <!-- Функции администратора -->
-                <Menu:Btn Style="{DynamicResource ButtonMenuAdmin}"
-                          Command="{Binding HomeCommand}" Grid.Column="1">
+                <Menu:Btn x:Name="adminBtn" Style="{DynamicResource ButtonMenuAdmin}" Grid.Column="1" Checked="adminBtn_Checked">
                     <Grid>
                         <TextBlock Text="Расширенные функции"
                                    Style="{StaticResource TextMenuAdminStyle}" 
@@ -108,6 +106,7 @@
                     </Grid>
                 </Menu:Btn>
             </StackPanel>
+
 
             <!-- Информация о пользователе -->
             <Grid>
@@ -173,8 +172,10 @@
 
             </Grid>
 
-        </Grid>
+            <TextBlock x:Name="ErrorText" Style="{StaticResource ErrorTextStyle}" Margin="10,50,10,0" VerticalAlignment="Top"/>
 
+        </Grid>
+        
         <Grid Grid.Column="1">
 
             <ContentControl x:Name="Pages" Content="{Binding CurrentView}" />

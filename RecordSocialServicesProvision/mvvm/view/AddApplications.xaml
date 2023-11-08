@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:vm="clr-namespace:RecordSocialServicesProvision.res.view_model"
+             xmlns:vm="clr-namespace:RecordSocialServicesProvision.mvvm.view_model"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1520"
@@ -40,23 +40,24 @@
                     <RowDefinition Height="2*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="1*"/>
-                    <RowDefinition Height="1*"/>
                     <RowDefinition Height="1*"/>
                     <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="1*"/>
                 </Grid.RowDefinitions>
 
                 <Label Content="Заявитель" 
                         Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
                 <!-- Разметка заполнения данных заявителя -->
-                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="1" Grid.RowSpan="4"/>
+                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="1" Grid.RowSpan="5"/>
                 <Grid Margin="30,0,30,0" Grid.Row="1">
 
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="2*"/>
-                        <ColumnDefinition Width="6*"/>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
                     </Grid.ColumnDefinitions>
 
                     <Grid.RowDefinitions>
@@ -71,7 +72,7 @@
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <xctk:MaskedTextBox x:Name="Snils"
                                         Mask="000-000-000 00" Style="{StaticResource BasicTextBoxStyle}" FontSize="16"
-                                        HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Column="1"/>
+                                        HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Column="1" LostFocus="Snils_LostFocus"/>
 
                     <!-- Ввод ФИО -->
                     <Label Content="ФИО" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
@@ -117,8 +118,7 @@
                                   SelectionChanged="TypeDocument_SelectionChanged" SelectedIndex="0"/>
                         <xctk:MaskedTextBox x:Name="NumberDocument"
                                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16"
-                                            HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Row="2" Grid.Column="1" 
-                                            LostFocus="DateBirth_LostFocus" />
+                                            HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Row="2" Grid.Column="1" />
                     </Grid>
                 </Grid>
 
@@ -133,7 +133,7 @@
                         <ColumnDefinition Width="7*"/>
                         <ColumnDefinition Width="27*"/>
                     </Grid.ColumnDefinitions>
-                    
+
                     <Label Content="регион" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="74" />
                     <ComboBox x:Name="Region" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
@@ -171,21 +171,50 @@
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4"/>
                     <TextBox x:Name="Home"
                              Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" Grid.Column="5" />
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" Grid.Column="5" PreviewTextInput="textBox_PreviewTextInput" />
                     <Label Content="к." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="6" />
                     <TextBox x:Name="Apartment"
                              Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30" 
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7" />
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7" PreviewTextInput="textBox_PreviewTextInput" />
+                </Grid>
+
+                <!-- Разметка ввода телефона и email -->
+                <Grid Grid.Row="5" Margin="30,0,30,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+
+                    <Label Content="Телефон" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" />
+                    <xctk:MaskedTextBox x:Name="Phone"
+                                        Mask="+7(000) 000-00-00" Style="{StaticResource BasicTextBoxStyle}" FontSize="15"
+                                        HorizontalAlignment="Left" Height="21" Width="160" Margin="10,10,0,13" Grid.Column="1"/>
+                    <Label Content="Email" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
+                           VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" />
+                    <TextBox x:Name="Email"
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30" 
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="22"  Width="330" Grid.Column="1" Grid.Row="1"/>
                 </Grid>
 
                 <!-- Разметка заполнения данных другого заявителя -->
                 <Label Content="Заявитель" Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold" 
                        VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="7"/>
-                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="8" Grid.RowSpan="4"/>
+
+                <!-- Заявление подало другое лицо -->
+                <CheckBox x:Name="AdditionalUser" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" FontWeight="Bold" 
+                          VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Margin="189,0,0,0" Checked="AdditionalUser_Checked" Unchecked="AdditionalUser_Unchecked" />
+                <Label Content="Заявление подает другое лицо" Style="{StaticResource BasicLabelStyle}" FontSize="20" 
+                       HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center"/>
+                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="9" Grid.RowSpan="4"/>
 
                 <!-- Ввод ФИО или названия заявителя -->
-                <Grid Grid.Row="8" Margin="30,0,30,0">
+                <Grid Grid.Row="9" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="6*"/>
@@ -198,7 +227,7 @@
                     <Label Content="ФИО(Название)" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <TextBox x:Name="AdditionalName" Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="50" 
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1" />
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1" IsEnabled="False"/>
 
                     <!-- Ввод данных документов -->
                     <Label Content="Документ" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
@@ -211,19 +240,19 @@
 
                         <ComboBox x:Name="AdditionalTypeDocument" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
                                   VerticalAlignment="Center" HorizontalAlignment="Left"  Width="160" Height="22" Margin="10,0,0,0" 
-                                  SelectionChanged="TypeDocument_SelectionChanged"/>
+                                  SelectionChanged="AdditionalTypeDocument_SelectionChanged" IsHitTestVisible="False" SelectedIndex="50"/>
                         <xctk:MaskedTextBox x:Name="AdditionalNumberDocument"
                                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16"
-                                            HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0"  Grid.Row="2" Grid.Column="1"
-                                            LostFocus="DateBirth_LostFocus" />
+                                            HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0"  Grid.Row="2" Grid.Column="1" 
+                                            IsEnabled="False" LostFocus="AdditionalNumberDocument_LostFocus"/>
                     </Grid>
 
                 </Grid>
 
                 <!-- Ввод адреса регистрации -->
                 <Label Content="Адрес регистрации" Style="{StaticResource BasicLabelStyle}" FontSize="18" FontWeight="Bold"
-                       VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="9" />
-                <Grid Grid.Row="10" Margin="30,0,30,0">
+                       VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="10" />
+                <Grid Grid.Row="11" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="7*"/>
                         <ColumnDefinition Width="27*"/>
@@ -232,18 +261,18 @@
                     </Grid.ColumnDefinitions>
 
                     <Label Content="регион" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold" 
-                           VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="74" />
+                           VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="74" IsEnabled="True"/>
                     <ComboBox x:Name="AdditionalRegion" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
                             HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="266" Grid.Column="1" 
-                            IsEditable="True" SelectedIndex="50"/>
+                            IsHitTestVisible="False" SelectedIndex="50" IsEditable="True"/>
                     <Label Content="район" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="66" Grid.Column="2"/>
                     <TextBox x:Name="AdditionalRegionSmall"
-                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30" 
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="45" IsEnabled="False"
                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="258" Grid.Column="3" />
                 </Grid>
 
-                <Grid Grid.Row="11" Margin="30,0,30,0">
+                <Grid Grid.Row="12" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
                         <ColumnDefinition Width="4*"/>
@@ -258,28 +287,25 @@
                     <Label Content="город" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <TextBox x:Name="AdditionalCity" 
-                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30"
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="45" IsEnabled="False"
                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" Grid.Column="1" />
                     <Label Content="улица" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
                     <TextBox x:Name="AdditionalStreet"
-                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30"
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="45" IsEnabled="False"
                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" Grid.Column="3" />
                     <Label Content="д." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4"/>
                     <TextBox x:Name="AdditionalHome"
-                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" Grid.Column="5" />
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="5" IsEnabled="False"
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" Grid.Column="5" PreviewTextInput="textBox_PreviewTextInput" />
                     <Label Content="к." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="6" />
                     <TextBox x:Name="AdditionalApartment"
-                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="30" 
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7" />
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="5" IsEnabled="False"
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7" PreviewTextInput="textBox_PreviewTextInput"/>
                 </Grid>
-                
-                <!-- Заявление подало другое лицо -->
-                <CheckBox Content="Заявление подает другое лицо" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" FontWeight="Bold" 
-                          VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="6" />
+
             </Grid>
 
             <!-- Базовая разметка организаций, услуг и условия проживания -->
@@ -319,15 +345,13 @@
                            VerticalAlignment="Center" HorizontalAlignment="Left"/>
                     <ComboBox x:Name="WhomOrganizations" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
                               VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1"  
-                              SelectionChanged="TypeDocument_SelectionChanged"
                               IsEditable="True" SelectedIndex="0"/>
 
                     <!-- Организация оказывающая услуга -->
                     <Label Content="Окажет услугу" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" />
                     <ComboBox x:Name="WhoOrganizations" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1" 
-                              SelectionChanged="TypeDocument_SelectionChanged" 
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1"  
                               IsEditable="True" SelectedIndex="0"/>
                 </Grid>
 
@@ -344,9 +368,7 @@
                     <Label Content="Форма" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <ComboBox x:Name="FormService" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Width="505" Height="22" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1"  
-                              SelectionChanged="TypeDocument_SelectionChanged"
-                              IsEditable="True" SelectedIndex="0"/>
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Width="505" Height="22" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1"/>
                 </Grid>
 
                 <Label Content="Причина получения услуги" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold" 
@@ -369,37 +391,37 @@
                         <RowDefinition Height="1*"/>
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
-                    
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              HorizontalAlignment="Center" Height="16" Width="16" Margin="0,15,0,15"/>
-                    <Label Content="Виды услуг" Style="{StaticResource BasicLabelStyle}" FontSize="16" Grid.Column="1"
+
+                    <CheckBox x:Name="Domestic" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Height="20"/>
+                    <Label Content="Социально-бытовые" Style="{StaticResource BasicLabelStyle}" FontSize="16" Grid.Column="1"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" />
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              HorizontalAlignment="Center" Height="16" Width="16" Margin="0,15,0,15" Grid.Row="1"/>
+                    <CheckBox x:Name="Medical" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              HorizontalAlignment="Center" VerticalAlignment="Center" Height="20" Width="20" Grid.Row="1" />
                     <Label Content="Социально-медецинские" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1" Grid.Column="1" />
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              HorizontalAlignment="Center" Height="16" Width="16" Margin="0,15,0,15" Grid.Row="2"/>
-                    <Label Content="Социально-бытовые" Style="{StaticResource BasicLabelStyle}" FontSize="16"
+                    <CheckBox x:Name="Psyhological" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              HorizontalAlignment="Center" Height="20" VerticalAlignment="Center" Width="20" Grid.Row="2" />
+                    <Label Content="Социально-психологические" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2"  Grid.Column="1"/>
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              Height="16" HorizontalAlignment="Center" Width="16" Margin="0,15,0,15" Grid.Row="3"/>
+                    <CheckBox x:Name="Pedagogical" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Grid.Row="3" />
                     <Label Content="Социально-педагогические" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3"  Grid.Column="1"/>
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              Height="16" HorizontalAlignment="Center" Width="16" Margin="0,15,0,15" Grid.Row="1" Grid.Column="2"/>
+                    <CheckBox x:Name="Labour" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Grid.Row="1" Grid.Column="2" />
                     <Label Content="Социально-трудовые" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0"  Grid.Column="3"/>
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              Height="16" HorizontalAlignment="Center" Width="16" Margin="0,15,0,15" Grid.Row="2" Grid.Column="2"/>
+                    <CheckBox x:Name="Legal" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Grid.Row="2" Grid.Column="2" />
                     <Label Content="Социально-правовые" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="1"  Grid.Column="3"/>
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              Height="16" HorizontalAlignment="Center" Width="16" Margin="0,15,0,15" Grid.Row="3" Grid.Column="2"/>
+                    <CheckBox x:Name="Communication" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Grid.Row="3" Grid.Column="2" />
                     <Label Content="Срочные социальные услуги" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="2"  Grid.Column="3"/>
-                    <CheckBox Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
-                              Height="16" HorizontalAlignment="Center" Width="16" Margin="0,15,0,15" Grid.Column="2"/>
+                    <CheckBox x:Name="Urgent" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                              Height="20" HorizontalAlignment="Center" VerticalAlignment="Center" Width="20" Grid.Column="2"/>
                     <Label Content="Повышение коммуникации" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3"  Grid.Column="3"/>
                 </Grid>
@@ -410,8 +432,8 @@
                 <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="9" Grid.RowSpan="2" />
                 <Grid Grid.Row="9" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="3*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="9*"/>
                     </Grid.ColumnDefinitions>
                     <Grid.RowDefinitions>
                         <RowDefinition Height="1*"/>
@@ -421,37 +443,38 @@
 
                     <Label Content="Состав семьи" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold" 
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="0"/>
-                    <ComboBox x:Name="Famaly" Style="{StaticResource CustomComboBoxStyle}" FontSize="14" 
-                              HorizontalAlignment="Left" VerticalAlignment="Center" Height="22" Width="400" Margin="10,0,0,0" Grid.Column="1" Grid.Row="0"
-                              SelectionChanged="TypeDocument_SelectionChanged" 
-                              IsEditable="True" SelectedIndex="0"/>
+                    <TextBox x:Name="Famaly"
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="10" 
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Column="1"/>
 
                     <Label Content="Условия проживания" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" FontWeight="Bold" Grid.Row="1"/>
                     <ComboBox x:Name="Living" Style="{StaticResource CustomComboBoxStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="22" Width="400" Grid.Column="1" Grid.Row="1" 
-                              SelectionChanged="TypeDocument_SelectionChanged" 
-                              IsEditable="True" SelectedIndex="0"/>
+                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Column="1" Grid.Row="1" 
+                              IsEditable="True"/>
 
                     <Label Content="Доход" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" FontWeight="Bold" Grid.Row="2"/>
                     <TextBox x:Name="Income"
                              Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="10" 
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="400" Margin="10,0,0,0" Grid.Row="2" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Row="2" Grid.Column="1" PreviewTextInput="textBox_PreviewTextInput"/>
                 </Grid>
-                
+
                 <!-- Согласие на обработку данных-->
-                <CheckBox Content="Согласие на обработку данных" HorizontalAlignment="Center" Grid.Row="10" VerticalAlignment="Center" FontSize="16" FontFamily="Verdana" FontWeight="Bold"/>
+                <CheckBox x:Name="Consent" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
+                          Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Grid.Row="10" Margin="40,0,0,0"/>
+                <Label Content="Согласие на обработку данных" Style="{StaticResource BasicLabelStyle}" FontSize="16"
+                       VerticalAlignment="Center" HorizontalAlignment="Left" Margin="80,0,0,0" Grid.Row="10" FontWeight="Bold"/>
 
             </Grid>
         </Grid>
 
         <!-- Сообщение об ошибке -->
-        <TextBlock Style="{StaticResource ErrorTextStyle}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"/>
+        <TextBlock x:Name="ErrorText" Style="{StaticResource ErrorTextStyle}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="2"/>
 
         <!-- Кнопка добавление нового заявления в БД -->
         <Button x:Name="AddApplication" Style="{StaticResource ButtonStyle}"
                 Content="Подать заявление" HorizontalAlignment="Center" FontSize="24"
-                VerticalAlignment="Center" Height="70" Width="600" Grid.Row="3"/>
+                VerticalAlignment="Center" Height="70" Width="600" Grid.Row="3" Click="AddApplication_Click"/>
     </Grid>
 </UserControl>

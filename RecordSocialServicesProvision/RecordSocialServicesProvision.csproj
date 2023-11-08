@@ -31,4 +31,8 @@
     <Resource Include="res\icon\MainIcon.png" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="res\string\" />
+  </ItemGroup>
+
 </Project>

@@ -13,7 +13,7 @@
     </UserControl.DataContext>
 
     <Grid>
-        <DataGrid d:ItemsSource="{d:SampleData ItemCount=8}" FontFamily="{DynamicResource BasicFont}"/>
+        <DataGrid x:Name="DataApplications" d:ItemsSource="{d:SampleData ItemCount=8}" AutoGenerateColumns="True" FontFamily="{DynamicResource BasicFont}"/>
 
 
     </Grid>

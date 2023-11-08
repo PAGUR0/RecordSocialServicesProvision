@@ -1,17 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Microsoft.Win32;
+using System;
+using System.Threading;
+using System.Timers;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RecordSocialServicesProvision
 {
@@ -22,6 +13,7 @@ namespace RecordSocialServicesProvision
     {
         private String login;
         private MySQLBD mySQLBD = MySQLBD.getInstanse();
+        WindowCMD windowCMD = new WindowCMD();
         private bool admin;
 
         public MainWindow(String login)
@@ -30,11 +22,6 @@ namespace RecordSocialServicesProvision
 
             InitializeComponent();
             createProfileContent();
-        }
-
-        private void Btn_Checked(object sender, RoutedEventArgs e)
-        {
-
         }
 
         private void createProfileContent()
@@ -55,6 +42,15 @@ namespace RecordSocialServicesProvision
                 RoleText.Text = "Пользователь";
             }
 
+        }
+
+        private void adminBtn_Checked(object sender, RoutedEventArgs e)
+        {
+            if (admin)
+            {
+                windowCMD.Show();
+            }
+            basicBtn.IsChecked = true;
         }
     }
 }

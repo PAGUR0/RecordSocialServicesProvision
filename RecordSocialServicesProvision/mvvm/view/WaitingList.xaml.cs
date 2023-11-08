@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,16 @@ namespace RecordSocialServicesProvision.res.view
     /// </summary>
     public partial class WaitingList : UserControl
     {
+        MySQLBD mySQLBD = new MySQLBD();
         public WaitingList()
         {
             InitializeComponent();
+            DataApplications.ItemsSource = mySQLBD.getDataAdapter().DefaultView;
+        }
+
+        private void getData()
+        {
+            
         }
     }
 }

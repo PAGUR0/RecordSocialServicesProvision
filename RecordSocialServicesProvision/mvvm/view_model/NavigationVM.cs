@@ -6,8 +6,9 @@ using System.Threading.Tasks;
 using RecordSocialServicesProvision.res.utilities;
 using System.Windows.Input;
 using RecordSocialServicesProvision.res.view;
+using RecordSocialServicesProvision.res.view_model;
 
-namespace RecordSocialServicesProvision.res.view_model
+namespace RecordSocialServicesProvision.mvvm.view_model
 {
     class NavigationVM : ViewModelBase
     {
@@ -21,7 +22,12 @@ namespace RecordSocialServicesProvision.res.view_model
         public ICommand AddApplicationsCommand { get; set; }
         public ICommand WaitingListCommand { get; set; }
 
-        private void AddApplications(object obj) => CurrentView = new AddApplicationsVM();
+        private void AddApplications(object obj)
+        {
+            var addApplicationsVM = new AddApplicationsVM();
+            addApplicationsVM.Login = "1";
+            CurrentView = addApplicationsVM;
+        }
         private void WaitingList(object obj) => CurrentView = new WaitingListVM();
 
 
