@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:vm="clr-namespace:RecordSocialServicesProvision.mvvm.view_model"
+             xmlns:vm="clr-namespace:RecordSocialServicesProvision.res.view_model"
              xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
              mc:Ignorable="d" 
              d:DesignHeight="1080" d:DesignWidth="1520"
@@ -444,7 +444,7 @@
                     <Label Content="Состав семьи" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold" 
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="0"/>
                     <TextBox x:Name="Famaly"
-                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="10" 
+                             Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="45" 
                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Column="1"/>
 
                     <Label Content="Условия проживания" Style="{StaticResource BasicLabelStyle}" FontSize="16"

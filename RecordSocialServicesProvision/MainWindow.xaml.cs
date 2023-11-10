@@ -1,7 +1,4 @@
-﻿using Microsoft.Win32;
-using System;
-using System.Threading;
-using System.Timers;
+﻿using System;
 using System.Windows;
 
 namespace RecordSocialServicesProvision
@@ -11,14 +8,14 @@ namespace RecordSocialServicesProvision
     /// </summary>
     public partial class MainWindow : Window
     {
-        private String login;
+        public static String login;
         private MySQLBD mySQLBD = MySQLBD.getInstanse();
         WindowCMD windowCMD = new WindowCMD();
         private bool admin;
 
         public MainWindow(String login)
         {
-            this.login = login;
+            MainWindow.login = login;
 
             InitializeComponent();
             createProfileContent();

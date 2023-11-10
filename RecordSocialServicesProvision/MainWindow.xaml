@@ -95,7 +95,7 @@
 
                 <!-- Отображение поданных заявлений -->
                 <Menu:Btn Style="{DynamicResource ButtonMenu}"
-                          Command="{Binding HomeCommand}"
+                          Command="{Binding AllApplicationsCommand}"
                           >
                     <Grid>
                         <Image Source="res/icon/Listing.png"

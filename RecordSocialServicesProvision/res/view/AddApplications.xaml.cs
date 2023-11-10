@@ -1,21 +1,10 @@
-﻿using RecordSocialServicesProvision.res.view_model;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Data;
-using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
-using Xceed.Wpf.Toolkit.Primitives;
+
 
 namespace RecordSocialServicesProvision.res.view
 {
@@ -23,8 +12,7 @@ namespace RecordSocialServicesProvision.res.view
     /// Interaction logic for AddApplications.xaml
     /// </summary>
     public partial class AddApplications : UserControl
-    {
-        public string Login { get; set; }
+    { 
         private MySQLBD MySQLBD = new MySQLBD();
         private List<string>[] document = new List<string>[3] { new List<string>(), new List<string>(), new List<string>() };
         public AddApplications()
@@ -190,7 +178,7 @@ namespace RecordSocialServicesProvision.res.view
                 MySQLBD.setApplication(
                     snils,
                     additionalUser ? 1 : 0,
-                    additionalNumber ?? "",
+                    additionalNumber,
                     whomOrganizations,
                     whoOrganizations,
                     FormService.SelectedIndex,
@@ -208,7 +196,7 @@ namespace RecordSocialServicesProvision.res.view
                     int.Parse(Income.Text),
                     consent ? 1:0,
                     DateTime.Today,
-                    Login);
+                    MainWindow.login);
                 ErrorText.Text = "Подано";
             } catch
             {
@@ -221,20 +209,20 @@ namespace RecordSocialServicesProvision.res.view
             string[] user = MySQLBD.getUser(Snils.Text);
             if(user[0] != null)
             {
-                Name.Text = user[0];
-                Surname.Text = user[1];
-                Patronymic.Text = user[2];
-                DateBirth.Text = user[3];
-                TypeDocument.SelectedIndex = int.Parse(user[4]);
-                NumberDocument.Text = user[5];
-                Region.SelectedIndex = int.Parse(user[6]);
-                RegionSmall.Text = user[7];
-                City.Text = user[8];
-                Street.Text = user[9];
-                Home.Text = user[10];
-                Apartment.Text = user[11];
-                Phone.Text = user[12];
-                Email.Text = user[13];
+                Name.Text = user[1];
+                Surname.Text = user[2];
+                Patronymic.Text = user[3];
+                DateBirth.Text = DateTime.Parse(user[4].ToString()).ToString("dd.MM.yyyy");
+                TypeDocument.SelectedIndex = int.Parse(user[5]);
+                NumberDocument.Text = user[6];
+                Region.SelectedIndex = int.Parse(user[7]);
+                RegionSmall.Text = user[8];
+                City.Text = user[9];
+                Street.Text = user[10];
+                Home.Text = user[11];
+                Apartment.Text = user[12];
+                Phone.Text = user[13];
+                Email.Text = user[14];
             }
         }
 

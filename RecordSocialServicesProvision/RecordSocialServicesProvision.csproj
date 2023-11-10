@@ -8,6 +8,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="mvvm\**" />
+    <EmbeddedResource Remove="mvvm\**" />
+    <None Remove="mvvm\**" />
+    <Page Remove="mvvm\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="New.png" />
     <None Remove="res\icon\AddApplication.png" />
     <None Remove="res\icon\Listing.png" />

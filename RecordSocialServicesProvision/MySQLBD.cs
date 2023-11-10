@@ -1,6 +1,5 @@
 ﻿using MySql.Data.MySqlClient;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 
@@ -24,10 +23,167 @@ namespace RecordSocialServicesProvision
 
         public DataTable getDataAdapter() 
         {
-            MySqlDataAdapter adapter = new MySqlDataAdapter(new MySqlCommand("SELECT * FROM application", connect));
+            MySqlDataAdapter adapter = new MySqlDataAdapter(new MySqlCommand(@"
+SELECT 
+        a.idapplication AS 'id',
+        a.user_snils AS 'СНИЛС',
+        u.name AS 'имя',
+        u.surname AS 'фамилия',
+        u.patronymic AS 'отчество',
+        DATE_FORMAT(u.brithdates, '%Y-%m-%d') AS 'дата рождения',
+        d.name  AS 'документ',
+        u.document_number AS 'номер документа',
+        r.name AS 'регион',
+        u.region_small AS 'район',
+        u.city AS 'город',
+        u.street AS 'улица',
+        u.home AS 'дом',
+        u.apartment AS 'квартира',
+        u.phone_number AS 'телефон',
+        u.email AS 'почта',
+        CASE WHEN a.true_user_add = 1 THEN 'да' ELSE 'нет' END AS 'второй заявитель',
+        ua.name AS 'ФИО и название',
+        ua.document_type  AS 'документ', 
+        ua.document_number AS 'номер документа', 
+        ua.region AS 'регион2',
+        ua.region_small AS 'район2',
+        ua.city AS 'город2',
+        ua.street AS 'улица2', 
+        ua.home AS 'дом2', 
+        ua.apartment AS 'квартира2', 
+        so.name AS 'кому', 
+        o.name AS 'окажет услугу', 
+        f.type AS 'форма', a.reason AS 'причина', 
+        CASE WHEN a.domestic = 1 THEN 'да' ELSE 'нет' END AS 'социальные-бытовое', 
+        CASE WHEN a.medical = 1 THEN 'да' ELSE 'нет' END AS 'социальные-медецинские', 
+        CASE WHEN a.psychological = 1 THEN 'да' ELSE 'нет' END AS 'социальные-психологические', 
+        CASE WHEN a.pedagogical = 1 THEN 'да' ELSE 'нет' END AS 'социальные-педагогические', 
+        CASE WHEN a.labour = 1 THEN 'да' ELSE 'нет' END AS 'социальные-трудовые', 
+        CASE WHEN a.legal = 1 THEN 'да' ELSE 'нет' END AS 'социальные-правовые', 
+        CASE WHEN a.urgent = 1 THEN 'да' ELSE 'нет' END AS 'срочные социальные услуги', 
+        CASE WHEN a.communication = 1 THEN 'да' ELSE 'нет' END AS 'повышение коммуникации', 
+        a.family AS 'состав семьи', l.type AS 'условия проживания', 
+        a.income AS 'доход', CASE WHEN a.consent = 1 THEN 'да' ELSE 'нет' END AS 'согласие', 
+        DATE_FORMAT(a.date, '%Y-%m-%d') AS 'дата подачи', 
+        uw.Name AS 'работник', 
+        CASE WHEN a.proof_poverty = 1 THEN 'да' ELSE 'нет' END  AS 'одобрено' 
+    FROM 
+        application a 
+    LEFT JOIN 
+        user u ON a.user_snils = u.snils 
+    LEFT JOIN 
+        document d ON u.document_type = d.id 
+    LEFT JOIN 
+        geo_regions r ON u.region = r.id 
+    LEFT JOIN 
+        user_add ua ON a.user_add_id = ua.document_number 
+    LEFT JOIN 
+        social_organizations so ON a.social_organizations_idsocial_organizations = so.idsocial_organizations 
+    LEFT JOIN 
+        organizations o ON a.organization_id = o.id 
+    LEFT JOIN 
+        form f ON a.form_id = f.id 
+    LEFT JOIN 
+        living l ON a.living_id = l.id 
+    LEFT JOIN 
+        user_worker uw ON a.user_login = uw.Login;", connect));
             DataTable dataTable = new DataTable();
             adapter.Fill(dataTable);
             return dataTable;
+        }
+
+        public string[] getDataApplication()
+        {
+            connect.Open();
+            MySqlCommand resultCommand = new MySqlCommand(@"
+SELECT 
+        a.idapplication AS 'id', 
+        u.name AS 'имя', 
+        u.surname AS 'фамилия', 
+        u.patronymic AS 'отчество', 
+        DATE_FORMAT(u.brithdates, '%Y-%m-%d') AS 'дата рождения', 
+        d.name  AS 'документ', 
+        u.document_number AS 'номер документа', 
+        r.name AS 'регион', 
+        u.region_small AS 'район', 
+        u.city AS 'город', 
+        u.street AS 'улица', 
+        u.home AS 'дом', 
+        u.apartment AS 'квартира', 
+        u.phone_number AS 'телефон', 
+        u.email AS 'почта', 
+        CASE WHEN a.true_user_add = 1 THEN 'true' ELSE 'false' END AS 'второй заявитель', 
+        ua.name AS 'ФИО и название',
+        ua.document_type  AS 'документ', 
+        ua.document_number AS 'номер документа', 
+        ua.region AS 'регион2', 
+        ua.region_small AS 'район2', 
+        ua.city AS 'город2', 
+        ua.street AS 'улица2', 
+        ua.home AS 'дом2', 
+        ua.apartment AS 'квартира2', 
+        so.name AS 'кому', 
+        o.name AS 'окажет услугу', 
+        f.type AS 'форма', 
+        a.reason AS 'причина', 
+        CASE WHEN a.domestic = 1 THEN 'true' ELSE 'false' END AS 'социальные-бытовое', 
+        CASE WHEN a.medical = 1 THEN 'true' ELSE 'false' END AS 'социальные-медецинские', 
+        CASE WHEN a.psychological = 1 THEN 'true' ELSE 'false' END AS 'социальные-психологические', 
+        CASE WHEN a.pedagogical = 1 THEN 'true' ELSE 'false' END AS 'социальные-педагогические', 
+        CASE WHEN a.labour = 1 THEN 'true' ELSE 'false' END AS 'социальные-трудовые', 
+        CASE WHEN a.legal = 1 THEN 'true' ELSE 'false' END AS 'социальные-правовые', 
+        CASE WHEN a.urgent = 1 THEN 'true' ELSE 'false' END AS 'срочные социальные услуги', 
+        CASE WHEN a.communication = 1 THEN 'true' ELSE 'false' END AS 'повышение коммуникации', 
+        a.family AS 'состав семьи', 
+        l.type AS 'условия проживания', 
+        a.income AS 'доход', 
+        CASE WHEN a.consent = 1 THEN 'true' ELSE 'false' END AS 'согласие на обработку данных', 
+        DATE_FORMAT(a.date, '%Y-%m-%d') AS 'дата подачи', 
+        uw.login AS 'работник',
+        a.user_snils 
+    FROM 
+        application a
+    LEFT JOIN 
+        user u ON a.user_snils = u.snils
+    LEFT JOIN 
+        document d ON u.document_type = d.id
+    LEFT JOIN 
+        geo_regions r ON u.region = r.id
+    LEFT JOIN 
+        user_add ua ON a.user_add_id = ua.document_number
+    LEFT JOIN 
+        social_organizations so ON a.social_organizations_idsocial_organizations = so.idsocial_organizations
+    LEFT JOIN 
+        organizations o ON a.organization_id = o.id
+    LEFT JOIN 
+        form f ON a.form_id = f.id
+    LEFT JOIN 
+        living l ON a.living_id = l.id
+    LEFT JOIN 
+        user_worker uw ON a.user_login = uw.Login
+    ORDER BY 
+        a.proof_poverty ASC 
+    LIMIT 1;
+", connect);
+            string[] result = new string[44];
+
+            if (resultCommand == null)
+            {
+                connect.Close();
+                return result;
+            }
+            MySqlDataReader reader = resultCommand.ExecuteReader();
+
+            while (reader.Read())
+            {
+                for (int i = 0; i < 44; i++)
+                {
+                    result[i] = reader[i].ToString();
+                }
+            }
+            reader.Close();
+            connect.Close();
+            return result;
         }
 
 
@@ -59,10 +215,10 @@ namespace RecordSocialServicesProvision
 
             while (reader.Read())
             {
-                result[0] = reader["Name"].ToString();
-                result[1] = reader["Surname"].ToString();
-                result[2] = reader["Patronymic"].ToString();
-                result[3] = reader["Admin"].ToString();
+                for (int i = 0; i < 4; i++)
+                {
+                    result[i] = reader[i].ToString();
+                }
             }
             reader.Close();
             connect.Close();
@@ -201,7 +357,7 @@ namespace RecordSocialServicesProvision
         {
             connect.Open();
             MySqlCommand resultCommand = new MySqlCommand("SELECT * FROM user WHERE snils='"+ snils +"'", connect);
-            string[] result = new string[14];
+            string[] result = new string[15];
 
             if (resultCommand == null)
             {
@@ -212,20 +368,10 @@ namespace RecordSocialServicesProvision
 
             while (reader.Read())
             {
-                result[0] = reader["Name"].ToString();
-                result[1] = reader["Surname"].ToString();
-                result[2] = reader["Patronymic"].ToString();
-                result[3] = DateTime.Parse(reader["brithdates"].ToString()).ToString("dd.MM.yyyy");
-                result[4] = reader["document_type"].ToString();
-                result[5] = reader["document_number"].ToString();
-                result[6] = reader["region"].ToString();
-                result[7] = reader["region_small"].ToString();
-                result[8] = reader["city"].ToString();
-                result[9] = reader["street"].ToString();
-                result[10] = reader["home"].ToString();
-                result[11] = reader["apartment"].ToString();
-                result[12] = reader["phone_number"].ToString();
-                result[13] = reader["email"].ToString();
+                for (int i = 0; i < 15; i++)
+                {
+                    result[i] = reader[i].ToString();
+                }
             }
             reader.Close();
             connect.Close();
@@ -262,30 +408,25 @@ namespace RecordSocialServicesProvision
         {
             connect.Open() ;
             MySqlCommand resultCommand = new MySqlCommand("SELECT * FROM user_add WHERE document_number='" + userId + "'", connect);
-            string[] resultResult = new string[14];
+            string[] result = new string[14];
 
             if (resultCommand == null)
             {
                 connect.Close();
-                return resultResult;
+                return result;
             }
             MySqlDataReader reader = resultCommand.ExecuteReader();
 
             while (reader.Read())
             {
-                resultResult[0] = reader["name"].ToString();
-                resultResult[1] = reader["document_type"].ToString();
-                resultResult[2] = reader["document_number"].ToString();
-                resultResult[3] = reader["region"].ToString();
-                resultResult[4] = reader["region_small"].ToString();
-                resultResult[5] = reader["city"].ToString();
-                resultResult[6] = reader["street"].ToString();
-                resultResult[7] = reader["home"].ToString();
-                resultResult[8] = reader["apartment"].ToString();
+                for (int i = 0; i < 9; i++)
+                {
+                    result[i] = reader[i].ToString();
+                }
             }
             reader.Close();
             connect.Close();
-            return resultResult;
+            return result;
         }
 
         public void setApplication(string user_snils, int true_user_add, string user_add_id, int social_organizations_idsocial_organizations, int organization_id, int form_id, string reason, int domestic, int medical, int psychological, int pedagogical, int labour, int legal, int communication, int urgent, string family, int living_id, int income, int consent, DateTime dateCreate, string user_login)

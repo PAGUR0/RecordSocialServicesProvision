@@ -10,5 +10,9 @@
     <DataTemplate DataType="{x:Type vm:AddApplicationsVM}">
         <view:AddApplications />
     </DataTemplate>
-    
+
+    <DataTemplate DataType="{x:Type vm:AllApplicationsVM}">
+        <view:AllApplications />
+    </DataTemplate>
+
 </ResourceDictionary>
