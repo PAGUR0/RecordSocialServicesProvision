@@ -21,6 +21,7 @@ namespace RecordSocialServicesProvision.res.view
             RevertData();
         }
 
+        // Обновление данных
         private void RevertData()
         {
             document = MySQLBD.getDocument();
@@ -36,6 +37,7 @@ namespace RecordSocialServicesProvision.res.view
             WhoOrganizations.ItemsSource = MySQLBD.getOrganizations();
         }
 
+        // Проверка ввода даты
         private void DateBirth_LostFocus(object sender, RoutedEventArgs e)
         {
             if (!DateTime.TryParseExact(DateBirth.Text, "dd.MM.yyyy", null, System.Globalization.DateTimeStyles.None, out _))
@@ -114,16 +116,14 @@ namespace RecordSocialServicesProvision.res.view
                 ErrorText.Text = "Неверно указан email";
                 return;
             }
-            if (MySQLBD.getUserSnils(snils))
+            try
             {
-                try 
-                { 
-                    MySQLBD.setUser(snils, Name.Text, Surname.Text, Patronymic.Text, date, typeDocument, numberDocument, Region.SelectedIndex, RegionSmall.Text, City.Text, Street.Text, int.Parse(Home.Text), int.Parse(Apartment.Text), phone, email);
-                }catch
-                {
-                    ErrorText.Text = "Неверно указаны данные заявителя";
-                    return;
-                }
+                MySQLBD.setUser(snils, Name.Text, Surname.Text, Patronymic.Text, date, typeDocument, numberDocument, Region.SelectedIndex, RegionSmall.Text, City.Text, Street.Text, int.Parse(Home.Text), int.Parse(Apartment.Text), phone, email);
+            }
+            catch
+            {
+                ErrorText.Text = "Неверно указаны данные заявителя";
+                return;
             }
             bool additionalUser = AdditionalUser.IsChecked ?? false;
             string? additionalNumber = null;

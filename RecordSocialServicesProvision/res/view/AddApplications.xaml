@@ -305,7 +305,6 @@
                              Style="{StaticResource BasicTextBoxStyle}" FontSize="16" MaxLength="5" IsEnabled="False"
                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7" PreviewTextInput="textBox_PreviewTextInput"/>
                 </Grid>
-
             </Grid>
 
             <!-- Базовая разметка организаций, услуг и условия проживания -->
@@ -465,7 +464,6 @@
                           Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Grid.Row="10" Margin="40,0,0,0"/>
                 <Label Content="Согласие на обработку данных" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="80,0,0,0" Grid.Row="10" FontWeight="Bold"/>
-
             </Grid>
         </Grid>
 

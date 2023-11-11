@@ -14,5 +14,4 @@
     <DataTemplate DataType="{x:Type vm:AllApplicationsVM}">
         <view:AllApplications />
     </DataTemplate>
-
 </ResourceDictionary>

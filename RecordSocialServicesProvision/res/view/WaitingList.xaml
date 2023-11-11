@@ -15,20 +15,21 @@
     <!-- Базовая разметка страницы -->
     <Grid Background="{StaticResource AdditionalWhiteS}">
         <Grid.RowDefinitions>
-            <RowDefinition Height="2*"/>
-            <RowDefinition Height="24*"/>
+            <RowDefinition Height="1*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="23*"/>
             <RowDefinition Height="1*"/>
             <RowDefinition Height="3*"/>
         </Grid.RowDefinitions>
 
-        <!-- Разметка заполнения данных -->
-        <Grid Grid.Row="1">
+        <!-- Разметка данных -->
+        <Grid Grid.Row="2">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Разметка заполнения данных заявителей -->
+            <!-- Разметка  данных заявителей -->
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="1*"/>
@@ -48,10 +49,12 @@
                 </Grid.RowDefinitions>
 
                 <Label Content="Заявитель" 
-                        Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold" 
+                       VerticalAlignment="Center" HorizontalAlignment="Center"/>
 
-                <!-- Разметка заполнения данных заявителя -->
-                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="1" Grid.RowSpan="5"/>
+                <!-- Разметка данных заявителя -->
+                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" 
+                        Width="705" Grid.Row="1" Grid.RowSpan="5"/>
                 <Grid Margin="30,0,30,0" Grid.Row="1">
 
                     <Grid.ColumnDefinitions>
@@ -66,14 +69,15 @@
                         <RowDefinition Height="1*"/>
                     </Grid.RowDefinitions>
 
-                    <!-- Ввод СНИЛСа -->
-                    <Label Content="CНИЛС" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
-                           VerticalAlignment="Center" HorizontalAlignment="Left" />
+                    <!-- СНИЛС -->
+                    <Label Content="CНИЛС" Style="{StaticResource BasicLabelStyle}" FontSize="16" 
+                           FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <TextBlock x:Name="Snils"
                                Style="{StaticResource BasicTextStyle}" FontSize="16"
-                               HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Column="1" Background="White"/>
+                               HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" 
+                               Grid.Column="1" Background="White"/>
 
-                    <!-- Ввод ФИО -->
+                    <!--  ФИО -->
                     <Label Content="ФИО" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" />
                     <Grid Grid.Row="1" Grid.Column="2">
@@ -86,23 +90,27 @@
 
                         <TextBlock x:Name="Name"
                                  Style="{StaticResource BasicTextStyle}" FontSize="16" 
-                                 VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="160" Background="White"/>
+                                 VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" 
+                                   Width="160" Background="White"/>
                         <TextBlock x:Name="Surname"
                                  Style="{StaticResource BasicTextStyle}" FontSize="16"
-                                 VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="160" Grid.Row="1" Grid.Column="1"/>
+                                 VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" 
+                                   Width="160" Grid.Row="1" Grid.Column="1" Background="White"/>
                         <TextBlock x:Name="Patronymic"
                                  Style="{StaticResource BasicTextStyle}" FontSize="16"  
-                                 VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="160" Grid.Row="1" Grid.Column="2"/>
+                                 VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" 
+                                   Width="160" Grid.Row="1" Grid.Column="2" Background="White"/>
                     </Grid>
 
-                    <!-- Ввод даты рождения -->
-                    <Label Content="Дата рождения" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
-                           VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2"/>
+                    <!-- дата рождения -->
+                    <Label Content="Дата рождения" Style="{StaticResource BasicLabelStyle}" FontSize="16"
+                           FontWeight="Bold" VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="2"/>
                     <TextBlock x:Name="DateBirth"
                                Style="{StaticResource BasicTextStyle}" FontSize="16"
-                               HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Column="1" Grid.Row="2" Background="White"/>
+                               HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Column="1" 
+                               Grid.Row="2" Background="White"/>
 
-                    <!-- Ввод данных документа заявителя -->
+                    <!-- данные документа заявителя -->
                     <Label Content="Документ" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="3" />
                     <Grid Grid.Row="3" Grid.Column="2">
@@ -112,14 +120,16 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock x:Name="TypeDocument" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                                  VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" />
+                                  VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="160" 
+                                   Margin="10,0,0,0" Background="White" />
                         <TextBlock x:Name="NumberDocument"
-                                            Style="{StaticResource BasicTextStyle}" FontSize="16"
-                                            HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0" Grid.Row="2" Grid.Column="1" />
+                                   Style="{StaticResource BasicTextStyle}" FontSize="16"
+                                   HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0"
+                                   Grid.Row="2" Grid.Column="1" Background="White" />
                     </Grid>
                 </Grid>
 
-                <!-- Ввод адреса регистрации заявителя -->
+                <!-- Адрес регистрации заявителя -->
                 <Label Content="Адрес регистрации" Style="{StaticResource BasicLabelStyle}" FontSize="18"
                        VerticalAlignment="Center" HorizontalAlignment="Center" FontWeight="Bold" Grid.Row="2" />
 
@@ -133,13 +143,16 @@
 
                     <Label Content="регион" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="74" />
-                    <TextBlock x:Name="Region" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="266" Grid.Column="1"/>
+                    <TextBlock x:Name="Region" Style="{StaticResource BasicTextStyle}" FontSize="16"
+                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="266" 
+                               Grid.Column="1" Background="White"/>
                     <Label Content="район" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
-                           VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="66" Margin="6,0,0,0" Grid.Column="2"/>
+                           VerticalAlignment="Center" HorizontalAlignment="Left" Height="30" Width="66" 
+                           Margin="6,0,0,0" Grid.Column="2"/>
                     <TextBlock x:Name="RegionSmall"
-                             Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="258" Grid.Column="3" />
+                               Style="{StaticResource BasicTextStyle}" FontSize="16"
+                               VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="258" 
+                               Grid.Column="3" Background="White" />
                 </Grid>
                 <Grid Grid.Row="4" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
@@ -156,26 +169,30 @@
                     <Label Content="город" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <TextBlock x:Name="City" 
-                             Style="{StaticResource BasicTextStyle}" FontSize="16" 
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" Grid.Column="1" />
+                               Style="{StaticResource BasicTextStyle}" FontSize="16" 
+                               VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" 
+                               Grid.Column="1" Background="White" />
                     <Label Content="улица" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
                     <TextBlock x:Name="Street"
-                             Style="{StaticResource BasicTextStyle}" FontSize="16" 
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" Grid.Column="3" />
+                               Style="{StaticResource BasicTextStyle}" FontSize="16" 
+                               VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" 
+                               Grid.Column="3" Background="White" />
                     <Label Content="д." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4"/>
                     <TextBlock x:Name="Home"
-                             Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" Grid.Column="5" />
+                               Style="{StaticResource BasicTextStyle}" FontSize="16"
+                               VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" 
+                               Grid.Column="5" Background="White" />
                     <Label Content="к." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="6" />
                     <TextBlock x:Name="Apartment"
-                             Style="{StaticResource BasicTextStyle}" FontSize="16" 
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7" />
+                               Style="{StaticResource BasicTextStyle}" FontSize="16" 
+                               VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58"
+                               Grid.Column="7" Background="White" />
                 </Grid>
 
-                <!-- Разметка ввода телефона и email -->
+                <!-- Разметка телефона и email -->
                 <Grid Grid.Row="5" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -189,27 +206,31 @@
                     <Label Content="Телефон" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="0" />
                     <TextBlock x:Name="Phone"
-                                        Style="{StaticResource BasicTextStyle}" FontSize="15"
-                                        HorizontalAlignment="Left" Height="21" Width="160" Margin="10,10,0,13" Grid.Column="1"/>
+                               Style="{StaticResource BasicTextStyle}" FontSize="15"
+                               HorizontalAlignment="Left" Height="21" Width="160" Margin="10,10,0,13" 
+                               Grid.Column="1" Background="White"/>
                     <Label Content="Email" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" />
                     <TextBlock x:Name="Email"
                              Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="22"  Width="330" Grid.Column="1" Grid.Row="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Height="22"  
+                               Width="330" Grid.Column="1" Grid.Row="1" Background="White"/>
                 </Grid>
 
-                <!-- Разметка заполнения данных другого заявителя -->
+                <!-- Разметка данных другого заявителя -->
                 <Label Content="Заявитель" Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold" 
                        VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="7"/>
 
                 <!-- Заявление подало другое лицо -->
-                <CheckBox x:Name="AdditionalUser" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" FontWeight="Bold" 
+                <CheckBox x:Name="AdditionalUser" Style="{StaticResource BasicCheckBoxStyle}" 
+                          FontSize="16" FontWeight="Bold" 
                           VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="8" Margin="189,0,0,0" />
                 <Label Content="Заявление подает другое лицо" Style="{StaticResource BasicLabelStyle}" FontSize="20" 
                        HorizontalAlignment="Center" Grid.Row="8" VerticalAlignment="Center"/>
-                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="9" Grid.RowSpan="4"/>
+                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" 
+                        Grid.Row="9" Grid.RowSpan="4"/>
 
-                <!-- Ввод ФИО или названия заявителя -->
+                <!-- ФИО или названия заявителя -->
                 <Grid Grid.Row="9" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="2*"/>
@@ -223,9 +244,10 @@
                     <Label Content="ФИО(Название)" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <TextBlock x:Name="AdditionalName" Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" 
+                               Margin="10,0,0,0" Grid.Column="1" Background="White"/>
 
-                    <!-- Ввод данных документов -->
+                    <!-- Данные документов -->
                     <Label Content="Документ" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" />
                     <Grid Grid.Row="3" Grid.Column="2">
@@ -235,15 +257,17 @@
                         </Grid.ColumnDefinitions>
 
                         <TextBlock x:Name="AdditionalTypeDocument" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                                  VerticalAlignment="Center" HorizontalAlignment="Left"  Width="160" Height="22" Margin="10,0,0,0" />
+                                   VerticalAlignment="Center" HorizontalAlignment="Left"  Width="160" Height="22" 
+                                   Margin="10,0,0,0" Background="White" />
                         <TextBlock x:Name="AdditionalNumberDocument"
-                                            Style="{StaticResource BasicTextStyle}" FontSize="16"
-                                            HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0"  Grid.Row="2" Grid.Column="1"/>
+                                   Style="{StaticResource BasicTextStyle}" FontSize="16"
+                                   HorizontalAlignment="Left" Height="22" Width="160" Margin="10,0,0,0"  
+                                   Grid.Row="2" Grid.Column="1" Background="White"/>
                     </Grid>
 
                 </Grid>
 
-                <!-- Ввод адреса регистрации -->
+                <!-- Адрес регистрации -->
                 <Label Content="Адрес регистрации" Style="{StaticResource BasicLabelStyle}" FontSize="18" FontWeight="Bold"
                        VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="10" />
                 <Grid Grid.Row="11" Margin="30,0,30,0">
@@ -256,13 +280,13 @@
 
                     <Label Content="регион" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold" 
                            VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="74" IsEnabled="True"/>
-                    <TextBlock x:Name="AdditionalRegion" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                            HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="266" Grid.Column="1" />
+                    <TextBlock x:Name="AdditionalRegion" Style="{StaticResource BasicTextStyle}" FontSize="16" Background="White" 
+                            HorizontalAlignment="Center" VerticalAlignment="Center" Height="22" Width="266" Grid.Column="1"/>
                     <Label Content="район" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Height="30" Width="66" Grid.Column="2"/>
                     <TextBlock x:Name="AdditionalRegionSmall"
-                             Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="258" Grid.Column="3" />
+                             Style="{StaticResource BasicTextStyle}" FontSize="16" Background="White" 
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="258" Grid.Column="3"/>
                 </Grid>
 
                 <Grid Grid.Row="12" Margin="30,0,30,0">
@@ -281,24 +305,27 @@
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
                     <TextBlock x:Name="AdditionalCity" 
                              Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" Grid.Column="1" />
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" 
+                               Grid.Column="1" Background="White" />
                     <Label Content="улица" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="2" />
                     <TextBlock x:Name="AdditionalStreet"
                              Style="{StaticResource BasicTextStyle}" FontSize="16" 
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" Grid.Column="3" />
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="155" 
+                               Grid.Column="3" Background="White" />
                     <Label Content="д." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="4"/>
                     <TextBlock x:Name="AdditionalHome"
                              Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58" Grid.Column="5"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="58"
+                               Grid.Column="5" Background="White"/>
                     <Label Content="к." Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Column="6" />
                     <TextBlock x:Name="AdditionalApartment"
                              Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" Grid.Column="7"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22"  Width="58" 
+                               Grid.Column="7" Background="White"/>
                 </Grid>
-
             </Grid>
 
             <!-- Базовая разметка организаций, услуг и условия проживания -->
@@ -318,7 +345,7 @@
 
                 </Grid.RowDefinitions>
 
-                <!-- Ввод организация оказывающих соц.услуги -->
+                <!-- Организация оказывающих соц.услуги -->
                 <Label Content="Организации" 
                     HorizontalAlignment="Center" Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold" VerticalAlignment="Center"/>
                 <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705"  Grid.Row="1"/>
@@ -336,20 +363,23 @@
                     <!-- Организация которой направленно заявление -->
                     <Label Content="Кому" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left"/>
-                    <TextBlock x:Name="WhomOrganizations" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1"  />
+                    <TextBlock x:Name="WhomOrganizations" Style="{StaticResource BasicTextStyle}" FontSize="16"
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" 
+                               Grid.Column="1" Background="White"  />
 
                     <!-- Организация оказывающая услуга -->
                     <Label Content="Окажет услугу" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" Grid.Row="1" />
-                    <TextBlock x:Name="WhoOrganizations" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock x:Name="WhoOrganizations" Style="{StaticResource BasicTextStyle}" FontSize="16"
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="505" Margin="10,0,0,0" 
+                               Grid.Column="1" Grid.Row="1" Background="White"/>
                 </Grid>
 
-                <!-- Ввод получаемых услуг -->
+                <!-- Запрашиваемые услуг -->
                 <Label Content="Услуги" Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold"
                        VerticalAlignment="Center" HorizontalAlignment="Center" Grid.Row="2"/>
-                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20"  Width="705" Grid.Row="3" Grid.RowSpan="5"/>
+                <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20"  Width="705" Grid.Row="3" 
+                        Grid.RowSpan="5"/>
                 <Grid Grid.Row="3" Margin="30,0,30,0">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="1*"/>
@@ -358,15 +388,16 @@
 
                     <Label Content="Форма" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                            VerticalAlignment="Center" HorizontalAlignment="Left" />
-                    <TextBlock x:Name="FormService" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Left" Width="505" Height="22" Margin="10,0,0,0" Grid.Column="1" Grid.Row="1"/>
+                    <TextBlock x:Name="FormService" Style="{StaticResource BasicTextStyle}" FontSize="16"
+                              VerticalAlignment="Center" HorizontalAlignment="Left" Width="505" Height="22" Margin="10,0,0,0" 
+                               Grid.Column="1" Grid.Row="1" Background="White"/>
                 </Grid>
 
                 <Label Content="Причина получения услуги" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold" 
                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Row="4"/>
                 <TextBlock x:Name="Reason" TextWrapping="Wrap"
                          Style="{StaticResource BasicTextStyle}" FontSize="16"
-                         VerticalAlignment="Center" HorizontalAlignment="Center" Height="120" Width="680" Grid.Row="5" />
+                         VerticalAlignment="Center" HorizontalAlignment="Center" Height="120" Width="680" Grid.Row="5" Background="White" />
                 <Label Content="Виды услуг" Style="{StaticResource BasicLabelStyle}" FontSize="16" FontWeight="Bold"
                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="30,0,0,0" Grid.Row="6"/>
                 <Grid Grid.Row="7" Margin="30,0,30,0">
@@ -417,7 +448,7 @@
                            VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10,0,0,0" Grid.Row="3"  Grid.Column="3"/>
                 </Grid>
 
-                <!-- Ввод условий проживания -->
+                <!-- Условия проживания -->
                 <Label Content="Условия проживания и состав семьи" Style="{StaticResource BasicLabelStyle}" FontSize="24" FontWeight="Bold"
                        HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="8"/>
                 <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" Width="705" Grid.Row="9" Grid.RowSpan="2" />
@@ -436,47 +467,49 @@
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" Grid.Row="0"/>
                     <TextBlock x:Name="Famaly"
                              Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" 
+                               Grid.Column="1" Background="White"/>
 
                     <Label Content="Условия проживания" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" FontWeight="Bold" Grid.Row="1"/>
-                    <TextBlock x:Name="Living" Style="{StaticResource BasicTextStyle}" FontSize="14"
-                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Column="1" Grid.Row="1" />
+                    <TextBlock x:Name="Living" Style="{StaticResource BasicTextStyle}" FontSize="16"
+                              VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" 
+                               Grid.Column="1" Grid.Row="1" Background="White" />
 
                     <Label Content="Доход" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                            VerticalAlignment="Top" HorizontalAlignment="Left" Margin="0,10,0,0" FontWeight="Bold" Grid.Row="2"/>
                     <TextBlock x:Name="Income"
                              Style="{StaticResource BasicTextStyle}" FontSize="16"
-                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Row="2" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Center" Height="22" Width="447" Grid.Row="2" 
+                               Grid.Column="1" Background="White"/>
                 </Grid>
-
                 <!-- Согласие на обработку данных-->
                 <CheckBox x:Name="Consent" Style="{StaticResource BasicCheckBoxStyle}" FontSize="16" 
                           Height="20" HorizontalAlignment="Left" VerticalAlignment="Center" Width="20" Grid.Row="10" Margin="40,0,0,0"/>
                 <Label Content="Согласие на обработку данных" Style="{StaticResource BasicLabelStyle}" FontSize="16"
                        VerticalAlignment="Center" HorizontalAlignment="Left" Margin="80,0,0,0" Grid.Row="10" FontWeight="Bold"/>
-
             </Grid>
         </Grid>
 
 
-        <Grid Grid.Row="3">
+        <Grid Grid.Row="4">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
 
-            <!-- Кнопка добавление нового заявления в БД -->
+            <!-- Кнопки для одобрения или отказе в услугах -->
             <Button x:Name="ApproveApplication" Style="{StaticResource ButtonStyle}"
-                Content="Отказать" HorizontalAlignment="Center" FontSize="24"
-                VerticalAlignment="Center" Height="70" Width="600" Grid.Row="3" />
+                Content="Отказать в услугах" HorizontalAlignment="Center" FontSize="24"
+                VerticalAlignment="Center" Height="70" Width="600" Grid.Row="3" Click="ApproveApplication_Click" />
 
             <Button x:Name="RefuseApplication" Style="{StaticResource ButtonStyle}"
                 Content="Одобрить заявление" HorizontalAlignment="Center" FontSize="24"
-                VerticalAlignment="Center" Height="70" Width="600" Grid.Row="3" Grid.Column="1"/>
+                VerticalAlignment="Center" Height="70" Width="600" Grid.Row="3" Grid.Column="1" Click="RefuseApplication_Click"/>
         </Grid>
 
-        <Grid>
+        <!-- Разметка информации о заявлении -->
+        <Grid Grid.Row="1">
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="1*"/>
                 <ColumnDefinition Width="1*"/>
@@ -486,32 +519,42 @@
                 <RowDefinition Height="1*"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
+            
+            <Border Background="{StaticResource AdditionalLightGrayS}" CornerRadius="20" 
+                    HorizontalAlignment="Center" Width="1458" Grid.RowSpan="2" Grid.ColumnSpan="2" />
 
-            <Label Content="Номер заявления:" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BasicLabelStyle}" FontSize="20" FontWeight="Bold"/>
+            <!-- Номер -->
+            <Label Content="Номер заявления:" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                   Style="{StaticResource BasicLabelStyle}" FontSize="20" FontWeight="Bold" />
             <TextBlock x:Name="ID"
                              Style="{StaticResource BasicTextStyle}" FontSize="20"
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="100" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="100" Grid.Column="1" Background="White"/>
 
-            <Grid Grid.Row="1">
+            <Grid Grid.Row="2">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Принял:" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BasicLabelStyle}" FontSize="20" FontWeight="Bold"/>
+                
+                <!-- Работник -->
+                <Label Content="Принял:" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                       Style="{StaticResource BasicLabelStyle}" FontSize="20" FontWeight="Bold"/>
                 <TextBlock x:Name="UserWork"
                              Style="{StaticResource BasicTextStyle}" FontSize="20"
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="100" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="200" Grid.Column="1" Background="White"/>
             </Grid>
 
-            <Grid Grid.Row="1" Grid.Column="1">
+            <!-- Дата -->
+            <Grid Grid.Row="2" Grid.Column="1">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="1*"/>
                     <ColumnDefinition Width="1*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Дата подачи:" HorizontalAlignment="Right" VerticalAlignment="Center" Style="{StaticResource BasicLabelStyle}" FontSize="20" FontWeight="Bold"/>
+                <Label Content="Дата подачи:" HorizontalAlignment="Right" VerticalAlignment="Center" 
+                       Style="{StaticResource BasicLabelStyle}" FontSize="20" FontWeight="Bold"/>
                 <TextBlock x:Name="Date"
                              Style="{StaticResource BasicTextStyle}" FontSize="20"
-                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="100" Grid.Column="1"/>
+                             VerticalAlignment="Center" HorizontalAlignment="Left" Height="22" Width="200" Grid.Column="1" Background="White"/>
             </Grid>
         </Grid>
     </Grid>

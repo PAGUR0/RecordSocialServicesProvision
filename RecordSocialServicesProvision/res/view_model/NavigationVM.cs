@@ -1,5 +1,4 @@
-﻿
-using RecordSocialServicesProvision.res.utilities;
+﻿using RecordSocialServicesProvision.res.utilities;
 using System.Windows.Input;
 
 
@@ -22,14 +21,11 @@ namespace RecordSocialServicesProvision.res.view_model
         private void WaitingList(object obj) => CurrentView = new WaitingListVM();
         private void AllApplications(object obj) => CurrentView = new AllApplicationsVM();
 
-
         public NavigationVM()
         {
             AddApplicationsCommand = new RelayCommand(AddApplications);
             WaitingListCommand = new RelayCommand(WaitingList);
             AllApplicationsCommand = new RelayCommand(AllApplications);
-
-            // Startup Page
             CurrentView = new WaitingListVM();
         }
     }
