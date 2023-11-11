@@ -7,4 +7,39 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Remove="mvvm\**" />
+    <EmbeddedResource Remove="mvvm\**" />
+    <None Remove="mvvm\**" />
+    <Page Remove="mvvm\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="New.png" />
+    <None Remove="res\icon\AddApplication.png" />
+    <None Remove="res\icon\Listing.png" />
+    <None Remove="res\icon\MainIcon.png" />
+    <None Remove="res\icon\WaitingList.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\.editorconfig" Link=".editorconfig" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.1" />
+    <PackageReference Include="MySql.Data" Version="8.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="res\icon\AddApplication.png" />
+    <Resource Include="res\icon\Listing.png" />
+    <Resource Include="res\icon\WaitingList.png" />
+    <Resource Include="res\icon\MainIcon.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="res\string\" />
+  </ItemGroup>
+
 </Project>

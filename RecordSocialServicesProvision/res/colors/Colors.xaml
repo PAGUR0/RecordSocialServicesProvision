@@ -1,0 +1,25 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <!-- Цвета кнопок -->
+    <Color x:Key="BlueColor">#1589f6</Color>
+    <SolidColorBrush x:Key="BasicBlueColor" Color="{StaticResource BlueColor}" />
+    <Color x:Key="BlueInvertColor">#FF9803</Color>
+    <SolidColorBrush x:Key="BasicBlueInvertColor" Color="{StaticResource BlueInvertColor}" />
+    
+    <!-- Цвета для текста -->
+    <Color x:Key="BasicGrayTextColor">#383A42</Color>
+    <SolidColorBrush x:Key="BasicTextColor" Color="{StaticResource BasicGrayTextColor}" />
+    <Color x:Key="AdditionalGrayTextColor">#FF9E9EA0</Color>
+    <SolidColorBrush x:Key="AdditionalTextColor" Color="{StaticResource AdditionalGrayTextColor}" />
+    <SolidColorBrush x:Key="ErrorColor" Color="#FFFF0303" />
+
+    <!-- Цвета темы -->
+    <Color x:Key="AdditionalWhite">#FFFAFAFA</Color>
+    <SolidColorBrush x:Key="AdditionalWhiteS" Color="{StaticResource AdditionalWhite}" />
+    <Color x:Key="AdditionalLightGray">#eaeaeb</Color>
+    <SolidColorBrush x:Key="AdditionalLightGrayS" Color="{StaticResource AdditionalLightGray}"/>
+    <Color x:Key="AdditionalGray">#dbdbdc</Color>
+    <SolidColorBrush x:Key="AdditionalGrayS" Color="{StaticResource AdditionalGray}"/>
+
+</ResourceDictionary>
